@@ -270,37 +270,45 @@ function CbCase(project, L) {
     <div class="container">
       <a class="case__back" href="#/work" data-reveal>${L(CONTENT.back)}</a>
 
-      <header class="cb-hero" data-reveal>
-        <p class="eyebrow">${L(c.hero.kicker)}</p>
-        <h1 class="display-sm cb-hero__title">${L(c.hero.title)}</h1>
-        <p class="cb-hero__sub">${L(c.hero.sub)}</p>
-        ${FlowStrip(c.hero.flow, L)}
-      </header>
-      ${FigureCB(c.hero.image, c.hero.title, L)}
-
-      ${CbSection(c.problem, L)}
-      ${CbSection(c.form, L)}
-      ${CbSection(c.workflow, L)}
-      ${CbSection(c.platform, L)}
-      ${CbSection(c.fallback, L)}
-      ${CbSection(c.qa, L)}
-      ${CbEdge(c.edge, L)}
-      ${CbPipeline(c.pipeline, L)}
-      ${CbOutcome(c.outcome, L)}
-      ${CbContribution(c.contribution, L)}
+      ${CbHero(c.hero, L)}
+      ${c.stages.map((st) => renderStage(st, L)).join('')}
+      ${CbFinal(c.final, L)}
       ${CbTech(c.tech, L)}
     </div>
   </section>
   `
 }
 
-function FigureCB(file, alt, L) {
+function CbHero(hero, L) {
+  const tags = hero.tags.map((t) => `<li class="tag">${L(t)}</li>`).join('')
+  return `
+  <header class="cb-hero" data-reveal>
+    <p class="eyebrow">${L(hero.kicker)}</p>
+    <h1 class="display-sm cb-hero__title">${L(hero.title)}</h1>
+    <p class="cb-hero__sub">${L(hero.sub)}</p>
+    <p class="cb-hero__intro">${L(hero.intro)}</p>
+    <ul class="cb-tags">${tags}</ul>
+    <div class="cb-meta">
+      <div class="cb-meta__item">
+        <span class="cb-meta__k">ROLE</span>
+        <span class="cb-meta__v">${L(hero.role)}</span>
+      </div>
+      <div class="cb-meta__item">
+        <span class="cb-meta__k">CONTEXT</span>
+        <span class="cb-meta__v">${L(hero.context)}</span>
+      </div>
+    </div>
+  </header>
+  `
+}
+
+function FigureCB(file, caption, L) {
   const src = img(file)
   if (!src) return ''
   return `
   <figure class="figure figure--ratio-169 reveal-img" data-reveal>
     <span class="figure__media figure__media--img">
-      <img class="figure__img" loading="lazy" alt="${L(alt)}" src="${src}" />
+      <img class="figure__img" loading="lazy" alt="${caption ? L(caption) : ''}" src="${src}" />
     </span>
   </figure>
   `
@@ -314,119 +322,136 @@ function FlowStrip(flow, L) {
   `
 }
 
-function CbSection(sec, L) {
-  const parts = []
-  if (sec.stats) parts.push(StatsRow(sec.stats, L))
-  if (sec.image) parts.push(FigureCB(sec.image, sec.title, L))
-  if (sec.image2) parts.push(FigureCB(sec.image2, sec.image2Caption || sec.title, L))
-  if (sec.compare) parts.push(Compare(sec.compare, L))
-  if (sec.flow) parts.push(FlowStrip(sec.flow, L))
+function stageHead(st, L) {
   return `
-  <section class="cb-sec" data-reveal>
-    <div class="cb-sec__head">
-      <p class="eb">${sec.no} — ${L(sec.kicker)}</p>
-      <h2 class="cb-heading">${L(sec.title)}</h2>
-      <p class="cb-body">${L(sec.body)}</p>
+  <div class="cb-sec__head">
+    <p class="eb">${st.no} — ${L(st.kicker)}</p>
+    <h2 class="cb-heading">${L(st.title)}</h2>
+    <p class="cb-body">${L(st.body)}</p>
+  </div>`
+}
+
+function renderStage(st, L) {
+  let visual = ''
+  if (st.cases) visual = CbCasesV(st, L)
+  else if (st.features) visual = CbWorkbenchV(st, L)
+  else if (st.pains) visual = CbPainsV(st, L)
+  else if (st.strategies) visual = CbQualityV(st, L)
+  else if (st.example) visual = CbExampleV(st, L)
+  else if (st.flow) visual = FlowStrip(st.flow, L)
+  if (st.image && !st.cases && !st.features && !st.pains && !st.strategies && !st.example) {
+    visual += FigureCB(st.image, st.imageCaption, L)
+  }
+  return `<section class="cb-sec" data-reveal>${stageHead(st, L)}${visual}</section>`
+}
+
+function CbExampleV(st, L) {
+  return `
+  <div class="cb-example">
+    <div class="cb-ex">
+      <span class="cb-ex__k">${L({ zh: 'Whisper 识别', en: 'Whisper heard' })}</span>
+      <span class="cb-ex__v cb-ex__v--wrong">${L(st.example.wrong)}</span>
     </div>
-    ${parts.join('')}
-  </section>
+    <span class="cb-ex__arrow">→</span>
+    <div class="cb-ex">
+      <span class="cb-ex__k">${L({ zh: '正确歌词', en: 'Actual lyric' })}</span>
+      <span class="cb-ex__v">${L(st.example.right)}</span>
+    </div>
+  </div>
+  <p class="cb-note">${L(st.example.note)}</p>
+  <p class="cb-insight">${L(st.insight)}</p>
   `
 }
 
-function StatsRow(stats, L) {
+function CbQualityV(st, L) {
   return `
-  <div class="cb-stats">${stats
-    .map(
-      (s) => `
-      <div class="cb-stat">
-        <span class="cb-stat__v">${s.v}</span>
-        <span class="cb-stat__l">${L(s.label)}</span>
-      </div>`
-    )
-    .join('')}</div>
-  `
-}
-
-function Compare(cmp, L) {
-  return `
-  <div class="cb-compare">${cmp
+  <div class="cb-compare">${st.strategies
     .map(
       (c) => `
-      <div class="cb-compare__col">
-        <p class="cb-compare__head">${L(c.head)}</p>
-        <p class="cb-compare__body">${L(c.body)}</p>
-      </div>`
+    <div class="cb-compare__col">
+      <p class="cb-compare__head">${L(c.head)}</p>
+      <p class="cb-compare__body">${L(c.body)}</p>
+    </div>`
     )
     .join('')}</div>
+  <p class="cb-note">${L(st.prompt)}</p>
+  <div class="cb-beforeafter">
+    <span class="cb-ba__k">${L({ zh: 'Before', en: 'Before' })}</span>
+    <span class="cb-ba__v">${L(st.before)}</span>
+    <span class="cb-ba__arrow">→</span>
+    <span class="cb-ba__k">${L({ zh: 'After', en: 'After' })}</span>
+    <span class="cb-ba__v">${L(st.after)}</span>
+  </div>
+  <p class="cb-insight">${L(st.takeaway)}</p>
   `
 }
 
-function CbEdge(edge, L) {
+function CbWorkbenchV(st, L) {
   return `
-  <section class="cb-sec" data-reveal>
-    <div class="cb-sec__head">
-      <p class="eb">${edge.no} — ${L(edge.kicker)}</p>
-      <h2 class="cb-heading">${L(edge.title)}</h2>
-    </div>
-    <ul class="cb-chips">${edge.cases.map((cs) => `<li>${L(cs)}</li>`).join('')}</ul>
-  </section>
+  <div class="cb-feats">${st.features
+    .map(
+      (f) => `
+    <div class="cb-feat">
+      <span class="cb-feat__n">${f.n}</span>
+      <h3 class="cb-feat__t">${L(f.t)}</h3>
+      <p class="cb-feat__d">${L(f.d)}</p>
+    </div>`
+    )
+    .join('')}</div>
+  <p class="cb-insight">${L(st.summary)}</p>
+  ${FigureCB(st.image, st.imageCaption, L)}
   `
 }
 
-function CbPipeline(p, L) {
+function CbCasesV(st, L) {
   return `
-  <section class="cb-sec" data-reveal>
-    <div class="cb-sec__head">
-      <p class="eb">${p.no} — ${L(p.kicker)}</p>
-      <h2 class="cb-heading">${L(p.title)}</h2>
-    </div>
-    <ol class="cb-pipeline">${p.steps
-      .map(
-        (s, i) => `
-      <li class="cb-pipeline__step">
-        <span class="cb-pipeline__n">${String(i + 1).padStart(2, '0')}</span>
-        <span class="cb-pipeline__t">${L(s)}</span>
-      </li>`
-      )
-      .join('')}</ol>
-  </section>
+  <div class="cb-cases">${st.cases
+    .map(
+      (c) => `
+    <div class="cb-case">
+      <span class="cb-case__n">${c.n}</span>
+      <h3 class="cb-case__t">${L(c.t)}</h3>
+      <div class="cb-case__row">
+        <span class="cb-case__l">${L({ zh: '问题', en: 'Problem' })}</span>
+        <span class="cb-case__v">${L(c.p)}</span>
+      </div>
+      <div class="cb-case__row">
+        <span class="cb-case__l">${L({ zh: '解决', en: 'Fix' })}</span>
+        <span class="cb-case__v">${L(c.s)}</span>
+      </div>
+      <p class="cb-note">Technical Note · ${c.tech}</p>
+    </div>`
+    )
+    .join('')}</div>
+  <p class="cb-loop">${L(st.loop)}</p>
+  <p class="cb-insight">${L(st.summary)}</p>
   `
 }
 
-function CbOutcome(o, L) {
+function CbPainsV(st, L) {
   return `
-  <section class="cb-sec" data-reveal>
-    <div class="cb-sec__head">
-      <p class="eb">${o.no} — ${L(o.kicker)}</p>
-      <h2 class="cb-heading">${L(o.title)}</h2>
-      <p class="cb-body">${L(o.body)}</p>
-    </div>
-    <div class="cb-outcome">
-      <span class="cb-outcome__v">${o.stat.v}</span>
-      <span class="cb-outcome__l">${L(o.stat.label)}</span>
-    </div>
-  </section>
+  <div class="cb-feats">${st.pains
+    .map(
+      (p) => `
+    <div class="cb-feat">
+      <span class="cb-feat__n">${p.n}</span>
+      <h3 class="cb-feat__t">${L(p.t)}</h3>
+      <p class="cb-feat__d">${L(p.d)}</p>
+    </div>`
+    )
+    .join('')}</div>
+  ${FigureCB(st.image, st.imageCaption, L)}
   `
 }
 
-function CbContribution(c, L) {
+function CbFinal(final, L) {
   return `
-  <section class="cb-sec" data-reveal>
-    <div class="cb-sec__head">
-      <p class="eb">${c.no} — ${L(c.kicker)}</p>
-      <h2 class="cb-heading">${L(c.title)}</h2>
-      <p class="cb-body">${L(c.note)}</p>
-    </div>
-    <ol class="cb-points">${c.points
-      .map(
-        (pt, i) => `
-      <li class="cb-point">
-        <span class="cb-point__n">${String(i + 1).padStart(2, '0')}</span>
-        <span class="cb-point__t">${L(pt)}</span>
-      </li>`
-      )
-      .join('')}</ol>
-    <p class="cb-statement">${L(c.statement)}</p>
+  <section class="cb-sec cb-final" data-reveal>
+    <p class="eb">${L(final.kicker)}</p>
+    <h2 class="cb-final__title">${L(final.title)}</h2>
+    <p class="cb-body cb-final__body">${L(final.body)}</p>
+    ${FlowStrip(final.flow, L)}
+    <p class="cb-final__gain">${L(final.gain)}</p>
   </section>
   `
 }
@@ -435,9 +460,7 @@ function CbTech(tech, L) {
   return `
   <div class="cb-tech" data-reveal>
     <p class="eb">${L({ zh: '技术栈', en: 'Tech stack' })}</p>
-    <p class="cb-tech__list">${tech
-      .map((t) => `<span class="cb-tech__item">${t}</span>`)
-      .join(' · ')}</p>
+    <p class="cb-tech__list">${L(tech)}</p>
   </div>
   `
 }

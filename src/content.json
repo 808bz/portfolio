@@ -491,368 +491,424 @@
   "CB_CASE": {
     "hero": {
       "kicker": {
-        "zh": "内容生产工具 · 项目 01",
-        "en": "AI Content Production Tool · 01"
+        "zh": "案例研究 · 项目 01",
+        "en": "Case Study · 01"
       },
       "title": {
-        "zh": "把内容问题，做成一条生产工作流。",
-        "en": "From content problems to a production workflow."
+        "zh": "CB-BiliAgent",
+        "en": "CB-BiliAgent"
       },
       "sub": {
-        "zh": "一个服务于 B 站粉丝向二创视频生产的 AI 辅助工具，来自我真实二创账号的日常生产。",
-        "en": "An AI-assisted tool for Bilibili creator videos, built from my own account’s everyday production."
+        "zh": "从内容自动化，到创作者工作流。",
+        "en": "From content automation, to a creator workflow."
       },
-      "flow": [
+      "intro": {
+        "zh": "为 B 站音乐二创场景打造的 AI 内容生产工具。从视频获取、歌词识别，到字幕对齐与审校，持续围绕真实创作流程迭代。",
+        "en": "An AI content-production tool for Bilibili music re-creation — from video sourcing and lyric recognition to subtitle alignment and review, iterated around a real creative workflow."
+      },
+      "tags": [
         {
-          "zh": "获取",
-          "en": "SOURCE"
+          "zh": "AI 产品",
+          "en": "AI Product"
         },
         {
-          "zh": "转写",
-          "en": "TRANSCRIBE"
+          "zh": "内容工具",
+          "en": "Content Tool"
         },
         {
-          "zh": "翻译",
-          "en": "TRANSLATE"
-        },
-        {
-          "zh": "字幕",
-          "en": "SUBTITLE"
-        },
-        {
-          "zh": "压制",
-          "en": "RENDER"
-        },
-        {
-          "zh": "发布",
-          "en": "PUBLISH"
+          "zh": "工作流设计",
+          "en": "Workflow Design"
         }
       ],
-      "image": "cb-newtask.png"
+      "role": {
+        "zh": "Product Design · AI 应用 · 全流程开发",
+        "en": "Product Design · AI Application · Full-cycle Development"
+      },
+      "context": {
+        "zh": "个人项目 / AI 内容生产工具",
+        "en": "Personal project / AI content production tool"
+      }
     },
-    "problem": {
-      "no": "01",
-      "kicker": {
-        "zh": "从一次真实创作开始",
-        "en": "It started with a real problem"
-      },
-      "title": {
-        "zh": "一条 103 分钟的视频，占满了 D 盘。",
-        "en": "It started with a 103-minute video."
-      },
-      "body": {
-        "zh": "一场演唱会视频下载后直接塞满电脑，但实际要用的只有某一段副歌。于是我把需求提成：先解析总时长，输入具体的时间，就只下载我需要的那一段。",
-        "en": "A concert download filled the disk, but all I needed was one chorus. So I asked for time-range download: parse the length, enter a time like 2:53, keep only the clip I need."
-      },
-      "stats": [
-        {
-          "v": "103 min",
-          "label": {
-            "zh": "演唱会全长",
-            "en": "full concert"
-          }
+    "stages": [
+      {
+        "no": "01",
+        "kicker": {
+          "zh": "从一个真实需求开始",
+          "en": "It started with a real need"
         },
-        {
-          "v": "2:53",
-          "label": {
-            "zh": "输入的时间点",
-            "en": "time I asked for"
-          }
+        "title": {
+          "zh": "我不想再手动做一遍二创视频。",
+          "en": "I didn’t want to keep making fan videos by hand."
         },
-        {
-          "v": "1 clip",
-          "label": {
-            "zh": "只留下我要的那段",
-            "en": "only the clip I need"
-          }
-        }
-      ]
-    },
-    "form": {
-      "no": "02",
-      "kicker": {
-        "zh": "内容形态理解",
-        "en": "Content-form understanding"
-      },
-      "title": {
-        "zh": "同一首歌，不同的时间轴。",
-        "en": "Same song. Different timing."
-      },
-      "body": {
-        "zh": "现场版和录音室版节奏不同：歌词一样，但现场每句的词位会漂移，不能直接套录音室固定时间轴。于是我做了两套对齐策略。这背后是对「内容形态差异」的理解，而不只是让 AI 认词。",
-        "en": "A live take and the studio version don’t line up: same lyrics, but live timing drifts, so the studio timeline can’t be reused. Two alignment strategies were made. That’s understanding content-form differences — not just letting AI read the words."
-      },
-      "compare": [
-        {
-          "head": {
-            "zh": "录音室版",
-            "en": "Studio version"
+        "body": {
+          "zh": "最初的需求其实非常简单：把 Chris Brown 的歌曲做成 B 站二创视频。但实际制作需要反复经历找视频、下载、截取、转写、找歌词、翻译、对字幕、压制、导出。于是我尝试把整个流程自动化——第一阶段的目标不是做出一个完整产品，而是先让流程真正跑起来。",
+          "en": "The original need was simple: turn Chris Brown songs into Bilibili fan videos. But each video meant sourcing, downloading, clipping, transcribing, finding lyrics, translating, aligning subtitles, rendering and exporting — over and over. So I tried to automate the whole pipeline. The goal of stage one wasn’t a finished product; it was getting the flow to actually run."
+        },
+        "flow": [
+          {
+            "zh": "获取",
+            "en": "Download"
           },
-          "body": {
-            "zh": "固定时间轴",
-            "en": "fixed timeline"
-          }
-        },
-        {
-          "head": {
-            "zh": "现场版",
-            "en": "Live performance"
+          {
+            "zh": "转写",
+            "en": "Transcription"
           },
-          "body": {
-            "zh": "词位漂移 · 双策略对齐",
-            "en": "timing drift · dual-strategy align"
+          {
+            "zh": "翻译",
+            "en": "Translation"
+          },
+          {
+            "zh": "字幕",
+            "en": "Subtitle"
+          },
+          {
+            "zh": "导出",
+            "en": "Export"
           }
+        ],
+        "image": "cb-newtask.png",
+        "imageCaption": {
+          "zh": "桌面 WebUI：从链接到任务处理的完整流水线",
+          "en": "Desktop WebUI: the full pipeline from link to task"
         }
-      ],
-      "image2": "cb-export.png",
-      "image2Caption": {
-        "zh": "内容理解：为 AAVE 俚语建立专属词库，注入翻译",
-        "en": "Content understanding: a dedicated AAVE slang lexicon feeding the translation"
+      },
+      {
+        "no": "02",
+        "kicker": {
+          "zh": "能跑 ≠ 能用",
+          "en": "Runs ≠ usable"
+        },
+        "title": {
+          "zh": "真正的问题，从这里才开始。",
+          "en": "The real problems start here."
+        },
+        "body": {
+          "zh": "第一版能自动完成处理，但拿真实歌曲测试后很快发现：字幕质量根本不够用。Whisper 会把歌词听错、漏掉，尤其是歌曲专有名词、歌手名、连读歌词和现场演唱。",
+          "en": "The first version processed automatically — until I tested it with real songs. Subtitle quality just wasn’t usable. Whisper misheard and dropped lyrics, especially song names, artist names, linked vocals and live takes."
+        },
+        "example": {
+          "wrong": {
+            "zh": "“robert tussett”",
+            "en": "“robert tussett”"
+          },
+          "right": {
+            "zh": "Robitussin",
+            "en": "Robitussin"
+          },
+          "note": {
+            "zh": "Whisper 将歌名识别成错误发音",
+            "en": "Whisper misheard the song title"
+          }
+        },
+        "insight": {
+          "zh": "这个项目真正的核心，不是「自动生成字幕」，而是「生成可以直接进入创作流程的字幕」。",
+          "en": "The real core wasn’t “auto-generate subtitles” — it was generating subtitles ready to enter the creative workflow."
+        }
+      },
+      {
+        "no": "03",
+        "kicker": {
+          "zh": "字幕质量攻坚",
+          "en": "Subtitle quality"
+        },
+        "title": {
+          "zh": "从「AI 听到什么」，变成「应该出现什么」。",
+          "en": "From “what AI heard” to “what should appear”."
+        },
+        "body": {
+          "zh": "我没有继续单纯依赖 Whisper，而是引入外部歌词数据 + AI 转写的组合方案：接入 LRCLIB 获取官方歌词，再根据歌曲类型设计两套处理逻辑。",
+          "en": "Instead of relying on Whisper alone, I combined external lyric data with AI transcription: pulled official lyrics via LRCLIB, then designed two processing paths based on song type."
+        },
+        "strategies": [
+          {
+            "head": {
+              "zh": "录音室版本",
+              "en": "Studio version"
+            },
+            "body": {
+              "zh": "官方歌词 → 准确时间轴 → 直接替换 Whisper 文本",
+              "en": "Official lyrics → accurate timeline → replace Whisper text"
+            }
+          },
+          {
+            "head": {
+              "zh": "现场版本",
+              "en": "Live performance"
+            },
+            "body": {
+              "zh": "Whisper 时间戳 + 官方歌词文本 → 模糊匹配 → 重新对齐",
+              "en": "Whisper timestamps + official lyrics → fuzzy match → re-align"
+            }
+          }
+        ],
+        "prompt": {
+          "zh": "同时通过 initial_prompt 向 Whisper 提供歌手、歌曲和歌词上下文，减少识别错误。",
+          "en": "Also fed singer, song and lyric context into Whisper via initial_prompt to cut recognition errors."
+        },
+        "before": {
+          "zh": "《Under The Influence》原本识别错误的歌词",
+          "en": "《Under The Influence》— originally misheard lyrics"
+        },
+        "after": {
+          "zh": "官方歌词数据纠正，时间轴重新对齐",
+          "en": "Corrected with official lyric data, timeline re-aligned"
+        },
+        "takeaway": {
+          "zh": "AI 产品的价值不一定来自「模型更强」，也可以来自产品层面对模型能力的重新组织。",
+          "en": "An AI product’s value isn’t always a stronger model — sometimes it’s product-level reorganization of the model’s capabilities."
+        }
+      },
+      {
+        "no": "04",
+        "kicker": {
+          "zh": "从字幕生成器，到创作工作台",
+          "en": "From subtitle generator to a creator workbench"
+        },
+        "title": {
+          "zh": "自动生成，并不代表创作者愿意使用。",
+          "en": "Auto-generation doesn’t mean creators want to use it."
+        },
+        "body": {
+          "zh": "字幕准确之后，我又发现新的问题：真正剪视频时，我仍需要不断检查字幕有没有对上、字号是否合适、最终烧录效果如何、某一句是否需要整体移动、多句字幕能不能一起调整。于是开始从「创作者实际操作流程」重新设计工具。",
+          "en": "Once the subtitles were accurate, I hit the next problem: while actually editing I still had to keep checking — alignment, type size, the final burned-in look, moving one line, adjusting many lines together. So I redesigned the tool around how a creator actually works."
+        },
+        "features": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "所见即所得",
+              "en": "WYSIWYG"
+            },
+            "d": {
+              "zh": "预览中的字幕效果与最终压制效果保持一致，支持字号调整。",
+              "en": "Preview matches the final render, with adjustable type size."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "可视化时间轴",
+              "en": "Visual timeline"
+            },
+            "d": {
+              "zh": "参考剪辑软件操作：时间轴缩放、空白区平移、多选字幕、整体平移、滑块导航、表格与视频联动。",
+              "en": "Mirrors editing software: timeline zoom, pan, multi-select, bulk shift, scrubbing, table-video sync."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "全屏预览",
+              "en": "Fullscreen preview"
+            },
+            "d": {
+              "zh": "解决原生视频全屏时字幕层无法同步全屏的问题。",
+              "en": "Fixes the subtitle layer not following native fullscreen video."
+            }
+          }
+        ],
+        "summary": {
+          "zh": "产品不再只是「帮我生成结果」，而是开始介入整个创作过程。",
+          "en": "The product stopped being “generate the result” and started being part of the creative process itself."
+        },
+        "image": "cb-review.png",
+        "imageCaption": {
+          "zh": "审校工作台：字幕时间轴与双语字幕编辑",
+          "en": "Review workbench: subtitle timeline & bilingual editing"
+        }
+      },
+      {
+        "no": "05",
+        "kicker": {
+          "zh": "真实使用，暴露更多问题",
+          "en": "Real use exposes more problems"
+        },
+        "title": {
+          "zh": "看起来没问题，真正使用才知道哪里会崩。",
+          "en": "Looks fine — until you really use it."
+        },
+        "body": {
+          "zh": "这一部分不堆技术日志，只记下真实使用中遇到的四个问题，以及各自如何解决。",
+          "en": "No tech-log dumps here — just four problems that real use surfaced, and how each was solved."
+        },
+        "cases": [
+          {
+            "n": "CASE 01",
+            "t": {
+              "zh": "本地视频上传后失效",
+              "en": "Uploaded video breaks"
+            },
+            "p": {
+              "zh": "上传文件位于临时目录，文件生命周期结束后路径失效。",
+              "en": "File lives in a temp dir whose path dies after its lifecycle."
+            },
+            "s": {
+              "zh": "将上传文件复制到任务目录，保证后续处理稳定。",
+              "en": "Copy uploads into the task directory for stable processing."
+            },
+            "tech": "temp-file lifecycle"
+          },
+          {
+            "n": "CASE 02",
+            "t": {
+              "zh": "重复下载同一视频导致崩溃",
+              "en": "Re-downloading the same video crashes"
+            },
+            "p": {
+              "zh": "Windows 下目标文件已存在时发生异常。",
+              "en": "Exception when the target file already exists on Windows."
+            },
+            "s": {
+              "zh": "调整文件覆盖逻辑。",
+              "en": "Fixed the file-overwrite logic."
+            },
+            "tech": "Windows / overwrite"
+          },
+          {
+            "n": "CASE 03",
+            "t": {
+              "zh": "字幕编辑偶发报错",
+              "en": "Subtitle edits intermittently fail"
+            },
+            "p": {
+              "zh": "Gradio 事件参数与组件交互出现错位。",
+              "en": "Gradio event params misaligned with component wiring."
+            },
+            "s": {
+              "zh": "重新检查事件参数和组件调用关系。",
+              "en": "Rechecked event params and component calls."
+            },
+            "tech": "Gradio 6.x events"
+          },
+          {
+            "n": "CASE 04",
+            "t": {
+              "zh": "视频压制失败",
+              "en": "Render fails"
+            },
+            "p": {
+              "zh": "模板参数处理导致格式化异常。",
+              "en": "Template params broke formatting."
+            },
+            "s": {
+              "zh": "调整模板和参数处理方式。",
+              "en": "Adjusted template and param handling."
+            },
+            "tech": "ffmpeg templates"
+          }
+        ],
+        "loop": {
+          "zh": "发现问题 → 复现 → 定位 → 修改 → 实际验证",
+          "en": "Find → reproduce → locate → fix → verify in real use"
+        },
+        "summary": {
+          "zh": "产品不是「代码能运行」就结束，而是要验证到真实工作流能够完成。",
+          "en": "Done isn’t “the code runs” — it’s the real workflow completing."
+        }
+      },
+      {
+        "no": "06",
+        "kicker": {
+          "zh": "最近一次迭代：从工具到工作流",
+          "en": "Latest iteration: from tool to workflow"
+        },
+        "title": {
+          "zh": "最后，我开始解决真正影响使用效率的问题。",
+          "en": "Finally, I went after the things that actually slowed me down."
+        },
+        "body": {
+          "zh": "三个真实痛点，分别给出了对应的产品解法。",
+          "en": "Three real pain points, each with a product-level answer."
+        },
+        "pains": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "长视频太占空间",
+              "en": "Long videos eat the disk"
+            },
+            "d": {
+              "zh": "一场 100+ 分钟的演唱会没必要全部下载。新增按时间段下载 + 画质选择，只获取真正需要剪辑的片段。",
+              "en": "A 100+ minute concert shouldn’t be downloaded whole. Added time-range download and quality selection — grab only the clips you actually edit."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "任务执行过程不可控",
+              "en": "Processing felt like a black box"
+            },
+            "d": {
+              "zh": "处理大型视频时，用户不知道「现在做到哪了」。加入任务管理、实时进度、暂停与删除，让后台过程变得可感知、可控制。",
+              "en": "With large videos you never knew where things stood. Added task management, live progress, pause and delete — the backend became visible and controllable."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "现场演唱会无法稳定自动识别",
+              "en": "Live vocals resist auto-recognition"
+            },
+            "d": {
+              "zh": "Whisper 对现场演唱识别不理想时，不再强迫用户重复尝试。增加歌词搜索 → 手动导入 → 自动翻译 → 中英双语字幕，让 AI 失败之后仍存在一条可用路径。",
+              "en": "When Whisper struggles with live vocals, stop forcing retries. Added lyric search → manual import → auto-translate → bilingual subtitles: a usable path even after AI fails."
+            }
+          }
+        ],
+        "image": "cb-export.png",
+        "imageCaption": {
+          "zh": "导出发布：压制、元数据与 B 站草稿上传",
+          "en": "Export & publish: render, metadata and Bilibili draft upload"
+        }
       }
-    },
-    "workflow": {
-      "no": "03",
+    ],
+    "final": {
       "kicker": {
-        "zh": "创作者工作流",
-        "en": "Creator workflow"
+        "zh": "最后",
+        "en": "Final"
       },
       "title": {
-        "zh": "按创作者真实习惯设计的字幕体验。",
-        "en": "A subtitle experience that follows how creators really work."
+        "zh": "From automation to workflow.",
+        "en": "From automation to workflow."
       },
       "body": {
-        "zh": "字幕所见即所得、字号可调、时间轴可拖拽、框选多条后整体平移、双击编辑——这套交互参照剪辑软件的直觉。我不会只接受技术默认的交互，而是从实际创作习惯提出需求。",
-        "en": "WYSIWYG preview, adjustable type size, draggable timeline, marquee-select then shift in bulk, double-click to edit — mirroring video-editor intuition. I shape the product from real creator habits, not just tech defaults."
-      },
-      "image": "cb-review.png"
-    },
-    "platform": {
-      "no": "04",
-      "kicker": {
-        "zh": "平台理解",
-        "en": "Platform understanding"
-      },
-      "title": {
-        "zh": "为 B 站而做，不只是做视频。",
-        "en": "Built for Bilibili, not just video production."
-      },
-      "body": {
-        "zh": "主动研究 B 站的投稿、音频与审核要求：留意到杜比音频需满足 48kHz 采样率，评估是否加入升采样能力；针对投稿审核，设计歌词敏感词自动替换。这是看懂平台规则后，把它变成产品需求。",
-        "en": "I studied Bilibili’s submission, audio and review rules: noticed Dolby audio needs 48kHz and weighed upsampling; added automatic replacement of sensitive lyrics for review. Understanding platform rules, then turning them into product needs."
-      },
-      "image": "cb-slang.png"
-    },
-    "fallback": {
-      "no": "05",
-      "kicker": {
-        "zh": "容错设计",
-        "en": "Fallback design"
-      },
-      "title": {
-        "zh": "自动化失败时，给创作者一条退路。",
-        "en": "When automation fails, give creators a way out."
-      },
-      "body": {
-        "zh": "现场环境复杂，自动转写未必 100% 准确。所以没要求 AI 永远正确，而是加了手动歌词导入：自动转写 → 不准就导入人工歌词 → 自动翻译 → 双语字幕。自动化 + 人工兜底，是产品容错，不是纯技术。",
-        "en": "Live audio is messy; auto-transcription isn’t always right. So instead of demanding perfect AI, I added manual lyrics import: auto-transcribe → if off, import lyrics manually → auto-translate → bilingual subtitles. Automation plus a human fallback is fault tolerance, not just tech."
+        "zh": "这个项目没有从一开始就拥有一个确定的最终形态。它是在真实使用中不断暴露问题，再通过一次次迭代逐渐形成的。",
+        "en": "This project never had a fixed final form at the start. It took shape by exposing real problems in use, then evolving through iteration after iteration."
       },
       "flow": [
         {
-          "zh": "自动转写",
-          "en": "Auto transcription"
+          "zh": "发现需求",
+          "en": "Find need"
         },
         {
-          "zh": "不准",
-          "en": "If inaccurate"
+          "zh": "快速验证",
+          "en": "Quick proof"
         },
         {
-          "zh": "手动歌词导入",
-          "en": "Manual lyrics import"
+          "zh": "真实使用",
+          "en": "Real use"
         },
         {
-          "zh": "自动翻译",
-          "en": "Auto translation"
+          "zh": "暴露问题",
+          "en": "Find issues"
         },
         {
-          "zh": "双语字幕",
-          "en": "Bilingual subtitles"
-        }
-      ]
-    },
-    "qa": {
-      "no": "06",
-      "kicker": {
-        "zh": "质量验证",
-        "en": "Quality assurance"
-      },
-      "title": {
-        "zh": "在真实使用里，把问题验收清楚。",
-        "en": "Built through real-world validation."
-      },
-      "body": {
-        "zh": "一次点击「解析」，后端其实已成功、日志有输出，但前端没刷新。我能观察现象、复现问题、给出准确复现路径、看日志判断后端状态，再持续验证修复。最终定位到 Gradio 事件回调的响应问题——把「感觉不好用」变成可复现、可验证的问题。",
-        "en": "Once, clicking “parse” actually succeeded on the backend and the log showed output, but the frontend didn’t refresh. I observed, reproduced, gave an exact repro path, read logs to judge the backend, and kept verifying the fix — eventually tracing it to a Gradio event-callback response issue. Turning “feels broken” into something reproducible and verifiable."
-      },
-      "flow": [
-        {
-          "zh": "观察",
-          "en": "OBSERVE"
+          "zh": "产品迭代",
+          "en": "Iterate"
         },
         {
-          "zh": "复现",
-          "en": "REPRODUCE"
-        },
-        {
-          "zh": "描述",
-          "en": "REPORT"
-        },
-        {
-          "zh": "验证",
-          "en": "VERIFY"
-        }
-      ]
-    },
-    "edge": {
-      "no": "07",
-      "kicker": {
-        "zh": "真实边界情况",
-        "en": "Real-world edge cases"
-      },
-      "title": {
-        "zh": "它是在真实生产里被反复试出来的。",
-        "en": "Tested in real production, not one shot."
-      },
-      "cases": [
-        {
-          "zh": "磁盘占满",
-          "en": "Disk full"
-        },
-        {
-          "zh": "YouTube 限速 / 下载卡住",
-          "en": "YouTube rate-limit / stuck download"
-        },
-        {
-          "zh": "歌词只有英文",
-          "en": "Lyrics only in English"
-        },
-        {
-          "zh": "前端刷新失败",
-          "en": "Frontend refresh failure"
-        }
-      ]
-    },
-    "pipeline": {
-      "no": "08",
-      "kicker": {
-        "zh": "端到端工作流",
-        "en": "End-to-end workflow"
-      },
-      "title": {
-        "zh": "从原始素材，到一条可投 B 站的草稿。",
-        "en": "From raw footage to a Bilibili-ready draft."
-      },
-      "steps": [
-        {
-          "zh": "视频获取",
-          "en": "Video acquisition"
-        },
-        {
-          "zh": "人声分离",
-          "en": "Vocal separation"
-        },
-        {
-          "zh": "AI 转写",
-          "en": "AI transcription"
-        },
-        {
-          "zh": "双语翻译",
-          "en": "Bilingual translation"
-        },
-        {
-          "zh": "字幕编辑",
-          "en": "Subtitle editing"
-        },
-        {
-          "zh": "特效压制",
-          "en": "Effects & rendering"
-        },
-        {
-          "zh": "B 站上传",
-          "en": "Bilibili draft upload"
-        }
-      ]
-    },
-    "outcome": {
-      "no": "09",
-      "kicker": {
-        "zh": "成果",
-        "en": "Outcome"
-      },
-      "title": {
-        "zh": "内容需求 → 工具 → 生产 → 发布。",
-        "en": "Content need → tool → production → publishing."
-      },
-      "body": {
-        "zh": "这个工具已经实际作用于我的粉丝向二创账号日常内容生产，跑通了从选材、双语字幕到上传 B 站的完整链路（已有 5 条视频成片与双语字幕产出）。真实价值是：一条内容生产流水线被稳定地跑起来了。",
-        "en": "This tool now runs my fan-content account’s daily production, carrying the full loop from sourcing to bilingual subtitles to Bilibili (5 finished long-videos with bilingual subtitles so far). I won’t invent view counts or revenue — the real value is that a content pipeline runs reliably."
-      },
-      "stat": {
-        "v": "5",
-        "label": {
-          "zh": "长视频成片 · 双语字幕",
-          "en": "finished long-videos · bilingual subtitles"
-        }
-      }
-    },
-    "contribution": {
-      "no": "10",
-      "kicker": {
-        "zh": "我的角色",
-        "en": "My contribution"
-      },
-      "title": {
-        "zh": "需求提出者 · 产品验收者 · 实际使用者。",
-        "en": "Requirement definer · product validator · real user."
-      },
-      "note": {
-        "zh": "这不是一个我独立开发的软件项目。我是那个提出需求、理解内容、研究平台、持续验收，并在 AI 辅助下把方案落地的人。",
-        "en": "This isn’t a software project built alone. I’m the person who defined requirements, understood the content, studied the platform, validated each iteration, and — with AI assistance — turned it into something that works."
-      },
-      "points": [
-        {
-          "zh": "需求定义 —— 从真实创作痛点提出具体功能需求",
-          "en": "Requirement definition — turning real pain points into concrete features"
-        },
-        {
-          "zh": "内容理解 —— 理解现场演唱、歌词、字幕等不同形态",
-          "en": "Content understanding — live takes, lyrics, subtitles and their differences"
-        },
-        {
-          "zh": "平台理解 —— 研究 B 站投稿、音频与审核要求",
-          "en": "Platform understanding — Bilibili submission, audio and review rules"
-        },
-        {
-          "zh": "产品验收 —— 持续测试每次改动直到稳定可用",
-          "en": "Product validation — testing every change until it just works"
-        },
-        {
-          "zh": "AI 协作 —— 借助 AI 辅助完成产品实现",
-          "en": "AI collaboration — using AI-assisted development to ship"
+          "zh": "完整工作流",
+          "en": "Full workflow"
         }
       ],
-      "statement": {
-        "zh": "我不是一个人把产品写了出来，我是把产品该解决什么塑造成了形。",
-        "en": "I didn’t build the product alone. I shaped what the product needed to solve."
+      "gain": {
+        "zh": "最大的收获，不是「做出了一个 AI 工具」，而是第一次完整经历了：发现需求 → 产品设计 → AI 能力应用 → 实际开发 → 真实使用 → 问题定位 → 持续迭代。",
+        "en": "The biggest takeaway isn’t “I built an AI tool” — it’s going through the whole arc for the first time: find a need → product design → applying AI → building → real use → locating problems → continuous iteration."
       }
     },
-    "tech": [
-      "Python",
-      "Gradio",
-      "yt-dlp",
-      "ffmpeg",
-      "Demucs",
-      "faster-whisper",
-      "DeepSeek"
-    ]
+    "tech": {
+      "zh": "Python · Gradio · yt-dlp · ffmpeg · Demucs · faster-whisper · DeepSeek",
+      "en": "Python · Gradio · yt-dlp · ffmpeg · Demucs · faster-whisper · DeepSeek"
+    }
   }
 }

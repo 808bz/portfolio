@@ -167,25 +167,49 @@ function renderContact() {
 
 function renderCb() {
   const c = state.data.CB_CASE
-  return `
-    ${card('案例页顶部 Hero', pair('CB_CASE.hero.kicker', '眉题') + pair('CB_CASE.hero.title', '大标题') + fieldFix('CB_CASE.hero.sub.zh', '副标题（中文）', { area: true }) + fieldFix('CB_CASE.hero.sub.en', '副标题（English）', { area: true }) + imagePicker('CB_CASE.hero.image', '顶部大图'))}
-    ${card('01 · 真实创作问题', cbSecText('problem'))}
-    ${card('02 · 内容形态理解', cbSecText('form') + cbCompare('form') + imagePicker('CB_CASE.form.image2', '配图') + fieldFix('CB_CASE.form.image2Caption.zh', '配图说明（中文）') + fieldFix('CB_CASE.form.image2Caption.en', '配图说明（English）'))}
-    ${card('03 · 创作者工作流', cbSecText('workflow') + imagePicker('CB_CASE.workflow.image', '配图'))}
-    ${card('04 · 平台理解', cbSecText('platform') + imagePicker('CB_CASE.platform.image', '配图'))}
-    ${card('05 · 自动化容错', cbSecText('fallback'))}
-    ${card('06 · 质量验证', cbSecText('qa'))}
-    ${card('07 · 真实边界情况', cbSecText('edge'))}
-    ${card('08 · 端到端流程', cbSecText('pipeline'))}
-    ${card('09 · 成果', cbSecText('outcome') + '<div class="grid3">' + fieldFix('CB_CASE.outcome.stat.v', '成果数字') + '</div>' + pair('CB_CASE.outcome.stat.label', '成果说明'))}
-    ${card('10 · 我的贡献', cbSecText('contribution') + `<div class="f"><label class="f__label">总结语</label><textarea class="f__input" data-path="CB_CASE.contribution.statement.zh" rows="2">${esc(c.contribution.statement.zh)}</textarea></div>`)}
-  `
+  const labels = {
+    kicker: '眉题', title: '标题', sub: '副标题', intro: '简介', role: '角色',
+    context: '背景', body: '正文', flow: '流程', tags: '标签', imageCaption: '图片说明',
+    wrong: '识别错', right: '正确', note: '注释', insight: '要点', takeaway: '总结',
+    prompt: '提示词', before: 'Before', after: 'After', t: '标题', d: '说明',
+    p: '问题', s: '解决', loop: '迭代方式', summary: '总结语', gain: '收获',
+  }
+  const sec = (title, obj, path) =>
+    `<details class="card" open><summary>${title}</summary><div class="card__body">${cbWalk(obj, path, labels)}</div></details>`
+  let html = sec('顶部 Hero', c.hero, 'CB_CASE.hero')
+  c.stages.forEach((st, i) => {
+    html += sec('阶段 ' + (st.no || i + 1) + ' — ' + (st.title?.zh || ''), st, `CB_CASE.stages.${i}`)
+  })
+  html += sec('结尾总结', c.final, 'CB_CASE.final')
+  return html
 }
-function cbSecText(sec) {
-  return pair(`CB_CASE.${sec}.kicker`, '眉题') + pair(`CB_CASE.${sec}.title`, '标题') + fieldFix(`CB_CASE.${sec}.body.zh`, '正文（中文）', { area: true }) + fieldFix(`CB_CASE.${sec}.body.en`, '正文（English）', { area: true })
-}
-function cbCompare(sec) {
-  return `<div class="f"><label class="f__label">对比左·标题</label><input class="f__input" data-path="CB_CASE.${sec}.compare.0.head.zh" value="${esc(getPath(state.data, `CB_CASE.${sec}.compare.0.head.zh`))}" /></div>`
+
+function cbWalk(obj, path, labels) {
+  const seg = path.split('.').pop()
+  const label = labels[seg] || seg
+  if (obj && typeof obj.zh === 'string') {
+    const en = typeof obj.en === 'string' ? obj.en : ''
+    return `<div class="f"><div class="f__label">${label}</div><div class="pair">
+      <div class="pair__col"><span class="pair__tag">中文</span><input class="f__input" data-path="${path}.zh" value="${esc(obj.zh)}" /></div>
+      <div class="pair__col"><span class="pair__tag">English</span><input class="f__input" data-path="${path}.en" value="${esc(en)}" /></div>
+    </div></div>`
+  }
+  if (obj && typeof obj.en === 'string') {
+    return `<div class="f"><label class="f__label">${label}（English）</label><input class="f__input" data-path="${path}.en" value="${esc(obj.en)}" /></div>`
+  }
+  if (seg === 'image' && typeof obj === 'string') {
+    return imagePicker(path, '图片')
+  }
+  if (typeof obj === 'string') {
+    return `<div class="f"><label class="f__label">${label}</label><input class="f__input" data-path="${path}" value="${esc(obj)}" /></div>`
+  }
+  if (Array.isArray(obj)) {
+    return obj.map((item, i) => cbWalk(item, `${path}.${i}`, labels)).join('')
+  }
+  if (obj && typeof obj === 'object') {
+    return Object.entries(obj).map(([k, v]) => cbWalk(v, `${path}.${k}`, labels)).join('')
+  }
+  return ''
 }
 
 /* ---------- 图片管理 ---------- */
