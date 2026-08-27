@@ -9,7 +9,7 @@
       "en": "Content · Product · AI · Game"
     },
     "statement": {
-      "zh": "以内容运营为起点，用产品和 AI 把每件事做成长线积累的资产。",
+      "zh": "内容运营是起点，产品思维与 AI 是工具，持续把洞察变成可执行的方法。",
       "en": "Starting from content operations, using product and AI to turn every initiative into a compounding asset."
     },
     "navWork": {
@@ -445,24 +445,24 @@
     },
     "skills": [
       {
-        "zh": "运营能力",
-        "en": "Operations"
+        "zh": "内容运营",
+        "en": "Content Operations"
       },
       {
-        "zh": "数据复盘 · Excel 高级函数 / SQL",
-        "en": "Data review · Excel / SQL"
+        "zh": "游戏生态",
+        "en": "Gaming Ecosystem "
       },
       {
-        "zh": "内容制作 · 剪映 / PS / EDIUS",
-        "en": "Content · CapCut / PS / EDIUS"
+        "zh": "数据分析",
+        "en": "Data Analysis"
       },
       {
-        "zh": "AIGC 应用 · 大模型 / 数字人 / AI 音乐",
-        "en": "AIGC · LLMs / digital human / AI music"
+        "zh": "AI产品",
+        "en": "AIGC"
       },
       {
-        "zh": "英语 · CET-6",
-        "en": "English · CET-6"
+        "zh": "英语CET-6",
+        "en": "English CET-6"
       }
     ]
   },
@@ -471,7 +471,7 @@
       "zh": "一起做点好的。",
       "en": "Let's build something good."
     },
-    "email": "389510966@qq.com",
+    "email": "ztx13139991275@gmail.com",
     "phone": "13364719901",
     "intent": {
       "zh": "内容运营",
@@ -541,7 +541,7 @@
         "en": "It started with a 103-minute video."
       },
       "body": {
-        "zh": "一场演唱会视频下载后直接塞满电脑，但实际要用的只有某一段副歌。于是我把需求提成：先解析总时长，输入「2:53」这样的时间，就只下载我需要的那一段。",
+        "zh": "一场演唱会视频下载后直接塞满电脑，但实际要用的只有某一段副歌。于是我把需求提成：先解析总时长，输入具体的时间，就只下载我需要的那一段。",
         "en": "A concert download filled the disk, but all I needed was one chorus. So I asked for time-range download: parse the length, enter a time like 2:53, keep only the clip I need."
       },
       "stats": [
