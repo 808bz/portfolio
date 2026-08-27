@@ -181,7 +181,7 @@
           "en": "Developed end-to-end with Claude Code"
         }
       ],
-      "image": "bili-tool.png",
+      "image": "chatgptimage2026年8月27日20_11_01-1787832683832.png",
       "image2": "bili-tool-ui.png"
     },
     {
@@ -295,7 +295,7 @@
           "en": "Multi-platform reach & social spread"
         }
       ],
-      "image": null,
+      "image": "chatgptimage2026年8月27日20_13_58-1787832854327.png",
       "image2": null
     },
     {
@@ -318,8 +318,8 @@
         "en": "Strategy Simulation"
       },
       "roleFull": {
-        "zh": "在给定约束下完成一套可落地的 KOC 运营闭环：从指标筛选到分赛道选题、分阶段宣发与效果评估。",
-        "en": "Delivered an actionable KOC loop under constraints — from screening metrics to per-track content and phased rollout."
+        "zh": "独立完成一套可落地的 KOC 运营闭环：从指标筛选到分赛道选题、分阶段宣发与效果评估。",
+        "en": "Delivered an actionable KOC loop independently — from screening metrics to per-track content and phased rollout."
       },
       "outcome": {
         "value": "5k–5w",
@@ -604,7 +604,7 @@
           }
         }
       ],
-      "image2": "cb-slang.png",
+      "image2": "cb-export.png",
       "image2Caption": {
         "zh": "内容理解：为 AAVE 俚语建立专属词库，注入翻译",
         "en": "Content understanding: a dedicated AAVE slang lexicon feeding the translation"
@@ -637,10 +637,10 @@
         "en": "Built for Bilibili, not just video production."
       },
       "body": {
-        "zh": "主动研究 B 站的投稿、音频与审核要求：留意到杜比音频需满足 48kHz 采样率，评估是否加入升采样能力；针对投稿审核，设计歌词敏感词自动替换（如 fuck → 靠）。这是看懂平台规则后，把它变成产品需求。",
-        "en": "I studied Bilibili’s submission, audio and review rules: noticed Dolby audio needs 48kHz and weighed upsampling; added automatic replacement of sensitive lyrics for review (e.g. fuck → 靠). Understanding platform rules, then turning them into product needs."
+        "zh": "主动研究 B 站的投稿、音频与审核要求：留意到杜比音频需满足 48kHz 采样率，评估是否加入升采样能力；针对投稿审核，设计歌词敏感词自动替换。这是看懂平台规则后，把它变成产品需求。",
+        "en": "I studied Bilibili’s submission, audio and review rules: noticed Dolby audio needs 48kHz and weighed upsampling; added automatic replacement of sensitive lyrics for review. Understanding platform rules, then turning them into product needs."
       },
-      "image": "cb-export.png"
+      "image": "cb-slang.png"
     },
     "fallback": {
       "no": "05",
@@ -793,11 +793,11 @@
         "en": "Content need → tool → production → publishing."
       },
       "body": {
-        "zh": "这个工具已经实际作用于我的粉丝向二创账号日常内容生产，跑通了从选材、双语字幕到上传 B 站的完整链路（已有 4 条长视频成片与双语字幕产出）。这些量、粉丝数、收益我不虚构——真实价值是：一条内容生产流水线被稳定地跑起来了。",
-        "en": "This tool now runs my fan-content account’s daily production, carrying the full loop from sourcing to bilingual subtitles to Bilibili (4 finished long-videos with bilingual subtitles so far). I won’t invent view counts or revenue — the real value is that a content pipeline runs reliably."
+        "zh": "这个工具已经实际作用于我的粉丝向二创账号日常内容生产，跑通了从选材、双语字幕到上传 B 站的完整链路（已有 5 条视频成片与双语字幕产出）。真实价值是：一条内容生产流水线被稳定地跑起来了。",
+        "en": "This tool now runs my fan-content account’s daily production, carrying the full loop from sourcing to bilingual subtitles to Bilibili (5 finished long-videos with bilingual subtitles so far). I won’t invent view counts or revenue — the real value is that a content pipeline runs reliably."
       },
       "stat": {
-        "v": "4",
+        "v": "5",
         "label": {
           "zh": "长视频成片 · 双语字幕",
           "en": "finished long-videos · bilingual subtitles"
