@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作品集编辑后台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="side">
+        <div class="side__brand">作品集编辑后台</div>
+        <nav class="side__nav" id="nav">
+          <button data-sec="basic" class="is-active">基本信息</button>
+          <button data-sec="projects">项目（作品）</button>
+          <button data-sec="experience">经历</button>
+          <button data-sec="about">关于</button>
+          <button data-sec="contact">联系</button>
+          <button data-sec="cb">CB-BiliAgent 案例</button>
+          <button data-sec="images">图片管理</button>
+        </nav>
+        <div class="side__footer">
+          <p class="hint">改完点右上角「保存」或「保存并上线」。</p>
+          <p class="hint dim">保存并上线 = 存到本地 + 推送网站更新（约 1 分钟生效）。</p>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="bar">
+          <h1 id="viewTitle">基本信息</h1>
+          <div class="bar__right">
+            <span class="status" id="status"></span>
+            <button class="btn" id="btnSave">💾 保存</button>
+            <button class="btn btn--primary" id="btnPublish">🚀 保存并上线</button>
+          </div>
+        </header>
+        <div class="content" id="content"></div>
+      </main>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

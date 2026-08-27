@@ -1,4 +1,5 @@
-import { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE } from './content.js'
+import content from './content.json'
+const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE } = content
 
 const BASE = import.meta.env.BASE_URL
 
