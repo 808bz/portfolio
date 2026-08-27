@@ -258,3 +258,181 @@ export const FOOTER = {
   note: { zh: '内容 · 产品 · AI · 游戏', en: 'Content · Product · AI · Game' },
   top: { zh: '回到顶部 ↑', en: 'Back to top ↑' },
 }
+
+// ============================================================================
+//  CB-BiliAgent —— 自定义案例页数据（只改文字，图片在 public/content）
+//  hero 大图：cb-newtask.png；其余视觉见各 section 的 image / image2
+// ============================================================================
+export const CB_CASE = {
+  // 顶部 Hero：大标题 + 一句话 + 流程条 + 一张大图
+  hero: {
+    kicker: { zh: '内容生产工具 · 项目 01', en: 'AI Content Production Tool · 01' },
+    title: { zh: '把内容问题，做成一条生产工作流。', en: 'From content problems to a production workflow.' },
+    sub: {
+      zh: '一个服务于 B 站粉丝向二创视频生产的 AI 辅助工具，来自我真实二创账号的日常生产。',
+      en: 'An AI-assisted tool for Bilibili creator videos, built from my own account’s everyday production.',
+    },
+    flow: [
+      { zh: '获取', en: 'SOURCE' },
+      { zh: '转写', en: 'TRANSCRIBE' },
+      { zh: '翻译', en: 'TRANSLATE' },
+      { zh: '字幕', en: 'SUBTITLE' },
+      { zh: '压制', en: 'RENDER' },
+      { zh: '发布', en: 'PUBLISH' },
+    ],
+    image: 'cb-newtask.png',
+  },
+
+  // 01 真实创作问题 —— 103 分钟视频 → 时间段下载
+  problem: {
+    no: '01',
+    kicker: { zh: '从一次真实创作开始', en: 'It started with a real problem' },
+    title: { zh: '一条 103 分钟的视频，占满了 D 盘。', en: 'It started with a 103-minute video.' },
+    body: {
+      zh: '一场演唱会视频下载后直接塞满电脑，但实际要用的只有某一段副歌。于是我把需求提成：先解析总时长，输入「2:53」这样的时间，就只下载我需要的那一段。',
+      en: 'A concert download filled the disk, but all I needed was one chorus. So I asked for time-range download: parse the length, enter a time like 2:53, keep only the clip I need.',
+    },
+    stats: [
+      { v: '103 min', label: { zh: '演唱会全长', en: 'full concert' } },
+      { v: '2:53', label: { zh: '输入的时间点', en: 'time I asked for' } },
+      { v: '1 clip', label: { zh: '只留下我要的那段', en: 'only the clip I need' } },
+    ],
+  },
+
+  // 02 内容形态理解 —— 现场 vs 录音室
+  form: {
+    no: '02',
+    kicker: { zh: '内容形态理解', en: 'Content-form understanding' },
+    title: { zh: '同一首歌，不同的时间轴。', en: 'Same song. Different timing.' },
+    body: {
+      zh: '现场版和录音室版节奏不同：歌词一样，但现场每句的词位会漂移，不能直接套录音室固定时间轴。于是我做了两套对齐策略。这背后是对「内容形态差异」的理解，而不只是让 AI 认词。',
+      en: 'A live take and the studio version don’t line up: same lyrics, but live timing drifts, so the studio timeline can’t be reused. Two alignment strategies were made. That’s understanding content-form differences — not just letting AI read the words.',
+    },
+    compare: [
+      { head: { zh: '录音室版', en: 'Studio version' }, body: { zh: '固定时间轴', en: 'fixed timeline' } },
+      { head: { zh: '现场版', en: 'Live performance' }, body: { zh: '词位漂移 · 双策略对齐', en: 'timing drift · dual-strategy align' } },
+    ],
+    image2: 'cb-slang.png',
+    image2Caption: { zh: '内容理解：为 AAVE 俚语建立专属词库，注入翻译', en: 'Content understanding: a dedicated AAVE slang lexicon feeding the translation' },
+  },
+
+  // 03 创作者工作流 —— 字幕编辑器
+  workflow: {
+    no: '03',
+    kicker: { zh: '创作者工作流', en: 'Creator workflow' },
+    title: { zh: '按创作者真实习惯设计的字幕体验。', en: 'A subtitle experience that follows how creators really work.' },
+    body: {
+      zh: '字幕所见即所得、字号可调、时间轴可拖拽、框选多条后整体平移、双击编辑——这套交互参照剪辑软件的直觉。我不会只接受技术默认的交互，而是从实际创作习惯提出需求。',
+      en: 'WYSIWYG preview, adjustable type size, draggable timeline, marquee-select then shift in bulk, double-click to edit — mirroring video-editor intuition. I shape the product from real creator habits, not just tech defaults.',
+    },
+    image: 'cb-review.png',
+  },
+
+  // 04 平台理解 —— B站
+  platform: {
+    no: '04',
+    kicker: { zh: '平台理解', en: 'Platform understanding' },
+    title: { zh: '为 B 站而做，不只是做视频。', en: 'Built for Bilibili, not just video production.' },
+    body: {
+      zh: '主动研究 B 站的投稿、音频与审核要求：留意到杜比音频需满足 48kHz 采样率，评估是否加入升采样能力；针对投稿审核，设计歌词敏感词自动替换（如 fuck → 靠）。这是看懂平台规则后，把它变成产品需求。',
+      en: 'I studied Bilibili’s submission, audio and review rules: noticed Dolby audio needs 48kHz and weighed upsampling; added automatic replacement of sensitive lyrics for review (e.g. fuck → 靠). Understanding platform rules, then turning them into product needs.',
+    },
+    image: 'cb-export.png',
+  },
+
+  // 05 自动化兜底 —— 人工介入
+  fallback: {
+    no: '05',
+    kicker: { zh: '容错设计', en: 'Fallback design' },
+    title: { zh: '自动化失败时，给创作者一条退路。', en: 'When automation fails, give creators a way out.' },
+    body: {
+      zh: '现场环境复杂，自动转写未必 100% 准确。所以没要求 AI 永远正确，而是加了手动歌词导入：自动转写 → 不准就导入人工歌词 → 自动翻译 → 双语字幕。自动化 + 人工兜底，是产品容错，不是纯技术。',
+      en: 'Live audio is messy; auto-transcription isn’t always right. So instead of demanding perfect AI, I added manual lyrics import: auto-transcribe → if off, import lyrics manually → auto-translate → bilingual subtitles. Automation plus a human fallback is fault tolerance, not just tech.',
+    },
+    flow: [
+      { zh: '自动转写', en: 'Auto transcription' },
+      { zh: '不准', en: 'If inaccurate' },
+      { zh: '手动歌词导入', en: 'Manual lyrics import' },
+      { zh: '自动翻译', en: 'Auto translation' },
+      { zh: '双语字幕', en: 'Bilingual subtitles' },
+    ],
+  },
+
+  // 06 质量验证 —— QA 闭环
+  qa: {
+    no: '06',
+    kicker: { zh: '质量验证', en: 'Quality assurance' },
+    title: { zh: '在真实使用里，把问题验收清楚。', en: 'Built through real-world validation.' },
+    body: {
+      zh: '一次点击「解析」，后端其实已成功、日志有输出，但前端没刷新。我能观察现象、复现问题、给出准确复现路径、看日志判断后端状态，再持续验证修复。最终定位到 Gradio 事件回调的响应问题——把「感觉不好用」变成可复现、可验证的问题。',
+      en: 'Once, clicking “parse” actually succeeded on the backend and the log showed output, but the frontend didn’t refresh. I observed, reproduced, gave an exact repro path, read logs to judge the backend, and kept verifying the fix — eventually tracing it to a Gradio event-callback response issue. Turning “feels broken” into something reproducible and verifiable.',
+    },
+    flow: [ { zh: '观察', en: 'OBSERVE' }, { zh: '复现', en: 'REPRODUCE' }, { zh: '描述', en: 'REPORT' }, { zh: '验证', en: 'VERIFY' } ],
+  },
+
+  // 07 其它真实边界情况
+  edge: {
+    no: '07',
+    kicker: { zh: '真实边界情况', en: 'Real-world edge cases' },
+    title: { zh: '它是在真实生产里被反复试出来的。', en: 'Tested in real production, not one shot.' },
+    cases: [
+      { zh: '磁盘占满', en: 'Disk full' },
+      { zh: 'YouTube 限速 / 下载卡住', en: 'YouTube rate-limit / stuck download' },
+      { zh: '歌词只有英文', en: 'Lyrics only in English' },
+      { zh: '前端刷新失败', en: 'Frontend refresh failure' },
+    ],
+  },
+
+  // 08 端到端流程
+  pipeline: {
+    no: '08',
+    kicker: { zh: '端到端工作流', en: 'End-to-end workflow' },
+    title: { zh: '从原始素材，到一条可投 B 站的草稿。', en: 'From raw footage to a Bilibili-ready draft.' },
+    steps: [
+      { zh: '视频获取', en: 'Video acquisition' },
+      { zh: '人声分离', en: 'Vocal separation' },
+      { zh: 'AI 转写', en: 'AI transcription' },
+      { zh: '双语翻译', en: 'Bilingual translation' },
+      { zh: '字幕编辑', en: 'Subtitle editing' },
+      { zh: '特效压制', en: 'Effects & rendering' },
+      { zh: 'B 站上传', en: 'Bilibili draft upload' },
+    ],
+  },
+
+  // 09 成果
+  outcome: {
+    no: '09',
+    kicker: { zh: '成果', en: 'Outcome' },
+    title: { zh: '内容需求 → 工具 → 生产 → 发布。', en: 'Content need → tool → production → publishing.' },
+    body: {
+      zh: '这个工具已经实际作用于我的粉丝向二创账号日常内容生产，跑通了从选材、双语字幕到上传 B 站的完整链路（已有 4 条长视频成片与双语字幕产出）。这些量、粉丝数、收益我不虚构——真实价值是：一条内容生产流水线被稳定地跑起来了。',
+      en: 'This tool now runs my fan-content account’s daily production, carrying the full loop from sourcing to bilingual subtitles to Bilibili (4 finished long-videos with bilingual subtitles so far). I won’t invent view counts or revenue — the real value is that a content pipeline runs reliably.',
+    },
+    stat: { v: '4', label: { zh: '长视频成片 · 双语字幕', en: 'finished long-videos · bilingual subtitles' } },
+  },
+
+  // 10 我的贡献
+  contribution: {
+    no: '10',
+    kicker: { zh: '我的角色', en: 'My contribution' },
+    title: { zh: '需求提出者 · 产品验收者 · 实际使用者。', en: 'Requirement definer · product validator · real user.' },
+    note: {
+      zh: '这不是一个我独立开发的软件项目。我是那个提出需求、理解内容、研究平台、持续验收，并在 AI 辅助下把方案落地的人。',
+      en: 'This isn’t a software project built alone. I’m the person who defined requirements, understood the content, studied the platform, validated each iteration, and — with AI assistance — turned it into something that works.',
+    },
+    points: [
+      { zh: '需求定义 —— 从真实创作痛点提出具体功能需求', en: 'Requirement definition — turning real pain points into concrete features' },
+      { zh: '内容理解 —— 理解现场演唱、歌词、字幕等不同形态', en: 'Content understanding — live takes, lyrics, subtitles and their differences' },
+      { zh: '平台理解 —— 研究 B 站投稿、音频与审核要求', en: 'Platform understanding — Bilibili submission, audio and review rules' },
+      { zh: '产品验收 —— 持续测试每次改动直到稳定可用', en: 'Product validation — testing every change until it just works' },
+      { zh: 'AI 协作 —— 借助 AI 辅助完成产品实现', en: 'AI collaboration — using AI-assisted development to ship' },
+    ],
+    statement: {
+      zh: '我不是一个人把产品写了出来，我是把产品该解决什么塑造成了形。',
+      en: 'I didn’t build the product alone. I shaped what the product needed to solve.',
+    },
+  },
+
+  // 11 技术栈（放底部，低权重）
+  tech: ['Python', 'Gradio', 'yt-dlp', 'ffmpeg', 'Demucs', 'faster-whisper', 'DeepSeek'],
+}

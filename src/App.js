@@ -1,4 +1,4 @@
-import { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER } from './content.js'
+import { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE } from './content.js'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -12,11 +12,16 @@ export function App(lang, route = '#/') {
 
   const isProject = route.startsWith('#/project/')
   const project = isProject ? PROJECTS.find((p) => `#/project/${p.slug}` === route) : null
+  const view = project
+    ? project.slug === 'cb-biliagent'
+      ? CbCase(project, L)
+      : CaseStudy(project, L)
+    : Home(L)
 
   return `
     ${Nav(lang)}
     <main>
-      ${project ? CaseStudy(project, L) : Home(L)}
+      ${view}
     </main>
     ${Footer(L)}
   `
@@ -250,5 +255,188 @@ function Footer(L) {
       <a href="#/">${L(FOOTER.top)}</a>
     </div>
   </footer>
+  `
+}
+
+/* ------------------------------------------------------------------ *
+ *  CB-BiliAgent custom case study
+ * ------------------------------------------------------------------ */
+
+function CbCase(project, L) {
+  const c = CB_CASE
+  return `
+  <section class="case cb" id="detail">
+    <div class="container">
+      <a class="case__back" href="#/work" data-reveal>${L(CONTENT.back)}</a>
+
+      <header class="cb-hero" data-reveal>
+        <p class="eyebrow">${L(c.hero.kicker)}</p>
+        <h1 class="display-sm cb-hero__title">${L(c.hero.title)}</h1>
+        <p class="cb-hero__sub">${L(c.hero.sub)}</p>
+        ${FlowStrip(c.hero.flow, L)}
+      </header>
+      ${FigureCB(c.hero.image, c.hero.title, L)}
+
+      ${CbSection(c.problem, L)}
+      ${CbSection(c.form, L)}
+      ${CbSection(c.workflow, L)}
+      ${CbSection(c.platform, L)}
+      ${CbSection(c.fallback, L)}
+      ${CbSection(c.qa, L)}
+      ${CbEdge(c.edge, L)}
+      ${CbPipeline(c.pipeline, L)}
+      ${CbOutcome(c.outcome, L)}
+      ${CbContribution(c.contribution, L)}
+      ${CbTech(c.tech, L)}
+    </div>
+  </section>
+  `
+}
+
+function FigureCB(file, alt, L) {
+  const src = img(file)
+  if (!src) return ''
+  return `
+  <figure class="figure figure--ratio-169 reveal-img" data-reveal>
+    <span class="figure__media figure__media--img">
+      <img class="figure__img" loading="lazy" alt="${L(alt)}" src="${src}" />
+    </span>
+  </figure>
+  `
+}
+
+function FlowStrip(flow, L) {
+  return `
+  <div class="cb-flow">${flow
+    .map((f) => `<span class="cb-flow__item">${L(f)}</span>`)
+    .join('<span class="cb-flow__arrow">→</span>')}</div>
+  `
+}
+
+function CbSection(sec, L) {
+  const parts = []
+  if (sec.stats) parts.push(StatsRow(sec.stats, L))
+  if (sec.image) parts.push(FigureCB(sec.image, sec.title, L))
+  if (sec.image2) parts.push(FigureCB(sec.image2, sec.image2Caption || sec.title, L))
+  if (sec.compare) parts.push(Compare(sec.compare, L))
+  if (sec.flow) parts.push(FlowStrip(sec.flow, L))
+  return `
+  <section class="cb-sec" data-reveal>
+    <div class="cb-sec__head">
+      <p class="eb">${sec.no} — ${L(sec.kicker)}</p>
+      <h2 class="cb-heading">${L(sec.title)}</h2>
+      <p class="cb-body">${L(sec.body)}</p>
+    </div>
+    ${parts.join('')}
+  </section>
+  `
+}
+
+function StatsRow(stats, L) {
+  return `
+  <div class="cb-stats">${stats
+    .map(
+      (s) => `
+      <div class="cb-stat">
+        <span class="cb-stat__v">${s.v}</span>
+        <span class="cb-stat__l">${L(s.label)}</span>
+      </div>`
+    )
+    .join('')}</div>
+  `
+}
+
+function Compare(cmp, L) {
+  return `
+  <div class="cb-compare">${cmp
+    .map(
+      (c) => `
+      <div class="cb-compare__col">
+        <p class="cb-compare__head">${L(c.head)}</p>
+        <p class="cb-compare__body">${L(c.body)}</p>
+      </div>`
+    )
+    .join('')}</div>
+  `
+}
+
+function CbEdge(edge, L) {
+  return `
+  <section class="cb-sec" data-reveal>
+    <div class="cb-sec__head">
+      <p class="eb">${edge.no} — ${L(edge.kicker)}</p>
+      <h2 class="cb-heading">${L(edge.title)}</h2>
+    </div>
+    <ul class="cb-chips">${edge.cases.map((cs) => `<li>${L(cs)}</li>`).join('')}</ul>
+  </section>
+  `
+}
+
+function CbPipeline(p, L) {
+  return `
+  <section class="cb-sec" data-reveal>
+    <div class="cb-sec__head">
+      <p class="eb">${p.no} — ${L(p.kicker)}</p>
+      <h2 class="cb-heading">${L(p.title)}</h2>
+    </div>
+    <ol class="cb-pipeline">${p.steps
+      .map(
+        (s, i) => `
+      <li class="cb-pipeline__step">
+        <span class="cb-pipeline__n">${String(i + 1).padStart(2, '0')}</span>
+        <span class="cb-pipeline__t">${L(s)}</span>
+      </li>`
+      )
+      .join('')}</ol>
+  </section>
+  `
+}
+
+function CbOutcome(o, L) {
+  return `
+  <section class="cb-sec" data-reveal>
+    <div class="cb-sec__head">
+      <p class="eb">${o.no} — ${L(o.kicker)}</p>
+      <h2 class="cb-heading">${L(o.title)}</h2>
+      <p class="cb-body">${L(o.body)}</p>
+    </div>
+    <div class="cb-outcome">
+      <span class="cb-outcome__v">${o.stat.v}</span>
+      <span class="cb-outcome__l">${L(o.stat.label)}</span>
+    </div>
+  </section>
+  `
+}
+
+function CbContribution(c, L) {
+  return `
+  <section class="cb-sec" data-reveal>
+    <div class="cb-sec__head">
+      <p class="eb">${c.no} — ${L(c.kicker)}</p>
+      <h2 class="cb-heading">${L(c.title)}</h2>
+      <p class="cb-body">${L(c.note)}</p>
+    </div>
+    <ol class="cb-points">${c.points
+      .map(
+        (pt, i) => `
+      <li class="cb-point">
+        <span class="cb-point__n">${String(i + 1).padStart(2, '0')}</span>
+        <span class="cb-point__t">${L(pt)}</span>
+      </li>`
+      )
+      .join('')}</ol>
+    <p class="cb-statement">${L(c.statement)}</p>
+  </section>
+  `
+}
+
+function CbTech(tech, L) {
+  return `
+  <div class="cb-tech" data-reveal>
+    <p class="eb">${L({ zh: '技术栈', en: 'Tech stack' })}</p>
+    <p class="cb-tech__list">${tech
+      .map((t) => `<span class="cb-tech__item">${t}</span>`)
+      .join(' · ')}</p>
+  </div>
   `
 }
