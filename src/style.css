@@ -10,7 +10,7 @@
   --text-tertiary: #86868b;
   --hairline: rgba(0, 0, 0, 0.1);
   --hairline-strong: rgba(0, 0, 0, 0.16);
-  --nav-bg: rgba(255, 255, 255, 0.82);
+  --nav-bg: rgba(255, 255, 255, 0.72);
 
   --font-sans: "InterVariable", "Inter Variable", Inter, -apple-system,
     BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue",
@@ -153,10 +153,10 @@ section {
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-caption);
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
@@ -228,8 +228,8 @@ section {
   inset: 0 0 auto 0;
   z-index: 100;
   background: var(--nav-bg);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--dur-1) var(--ease);
 }
@@ -320,8 +320,8 @@ section {
 /* ---------- Selected Work ---------- */
 
 .project {
-  padding-bottom: clamp(4rem, 8vw, 6rem);
-  margin-bottom: clamp(4rem, 8vw, 6rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7rem);
+  margin-bottom: clamp(4.5rem, 8vw, 7rem);
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -331,27 +331,19 @@ section {
   padding-bottom: 0;
 }
 
-.project__head {
-  align-items: baseline;
-  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+.project__link {
+  display: block;
 }
 
-.project__no {
-  grid-column: 1 / 3;
-  font-family: var(--font-mono);
-  font-size: var(--fs-caption);
-  color: var(--text-secondary);
-  letter-spacing: 0.08em;
-}
-
-.project__main {
-  grid-column: 3 / 11;
+.project__card {
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 48em;
 }
 
 .project__title {
-  font-size: var(--fs-h3);
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
@@ -368,15 +360,18 @@ section {
   margin-top: 0.75rem;
   color: var(--text-secondary);
   max-width: 36em;
+  font-size: var(--fs-body-lg);
 }
 
 .project__meta {
   margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
 
 .project__cta {
-  grid-column: 11 / 13;
-  justify-self: end;
   font-size: var(--fs-small);
   color: var(--text-secondary);
   white-space: nowrap;
@@ -442,8 +437,9 @@ section {
 }
 
 .figure__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -506,8 +502,9 @@ section {
 }
 
 .case__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -580,8 +577,9 @@ section {
 
 .exp__no {
   grid-column: 1 / 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -604,7 +602,7 @@ section {
 .exp__period {
   grid-column: 9 / 13;
   justify-self: end;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
   color: var(--text-tertiary);
   text-align: right;
@@ -697,8 +695,9 @@ section {
 }
 
 .contact__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -777,8 +776,9 @@ a.contact__value:hover {
 }
 
 .cb-flow__item {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -802,8 +802,9 @@ a.contact__value:hover {
 }
 
 .eb {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -908,8 +909,9 @@ a.contact__value:hover {
 
 .cb-pipeline__n {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-tertiary);
 }
 
@@ -954,8 +956,9 @@ a.contact__value:hover {
 }
 
 .cb-point__n {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-tertiary);
 }
 
@@ -1016,8 +1019,9 @@ a.contact__value:hover {
 }
 
 .cb-meta__k {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -1045,8 +1049,9 @@ a.contact__value:hover {
 }
 
 .cb-ex__k {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -1070,7 +1075,7 @@ a.contact__value:hover {
 
 .cb-note {
   margin-top: 1.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
   color: var(--text-tertiary);
   letter-spacing: 0.02em;
@@ -1095,8 +1100,9 @@ a.contact__value:hover {
 }
 
 .cb-ba__k {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -1123,8 +1129,9 @@ a.contact__value:hover {
 }
 
 .cb-feat__n {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-tertiary);
 }
 
@@ -1154,8 +1161,9 @@ a.contact__value:hover {
 }
 
 .cb-case__n {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-tertiary);
 }
 
@@ -1173,8 +1181,9 @@ a.contact__value:hover {
 }
 
 .cb-case__l {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
+  font-weight: 500;
   color: var(--text-tertiary);
   flex-shrink: 0;
   width: 2.5em;
@@ -1217,15 +1226,6 @@ a.contact__value:hover {
    Responsive
    ========================================================================== */
 
-@media (max-width: 1024px) {
-  .project__main {
-    grid-column: 3 / 12;
-  }
-  .project__cta {
-    grid-column: 11 / 13;
-  }
-}
-
 @media (max-width: 768px) {
   .nav__inner {
     height: 3rem;
@@ -1238,23 +1238,6 @@ a.contact__value:hover {
   .hero {
     min-height: 70vh;
     padding-top: clamp(7rem, 18vh, 9rem);
-  }
-
-  .project__head {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    align-items: start;
-  }
-
-  .project__no,
-  .project__main,
-  .project__cta {
-    grid-column: 1;
-    justify-self: start;
-  }
-
-  .project__cta {
-    margin-top: 1rem;
   }
 
   .case__grid {

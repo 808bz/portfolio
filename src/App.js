@@ -84,28 +84,25 @@ function Work(L) {
         <p class="eyebrow">${PROJECTS.length} Projects</p>
         <h2 class="h2">${L(CONTENT.selectedWork)}</h2>
       </div>
-      ${PROJECTS.map((p, i) => ProjectItem(p, i, L)).join('')}
+      ${PROJECTS.map((p) => ProjectItem(p, L)).join('')}
     </div>
   </section>
   `
 }
 
-function ProjectItem(p, i, L) {
+function ProjectItem(p, L) {
   return `
   <article class="project">
     <a class="project__link" href="#/project/${p.slug}">
-      <div class="project__head grid" data-reveal>
-        <span class="project__no">${p.no}</span>
-        <div class="project__main">
-          <h3 class="project__title">${L(p.title)}</h3>
-          <p class="project__desc">${L(p.brief)}</p>
-          <div class="project__meta">
-            <span class="tag">${L(p.category)}</span>
-          </div>
-        </div>
-        <span class="project__cta">${L(CONTENT.viewCase)}</span>
-      </div>
       ${Visual(p, L, 'figure--ratio-169')}
+      <div class="project__card" data-reveal>
+        <h3 class="project__title">${L(p.title)}</h3>
+        <p class="project__desc">${L(p.brief)}</p>
+        <div class="project__meta">
+          <span class="tag">${L(p.category)}</span>
+          <span class="project__cta">${L(CONTENT.viewCase)}</span>
+        </div>
+      </div>
     </a>
   </article>
   `
