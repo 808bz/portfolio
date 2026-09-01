@@ -206,52 +206,48 @@
         "en": "Game Live Event & Full-loop Ops"
       },
       "brief": {
-        "zh": "从赛制 0-1 设计到常态化活动执行 SOP 搭建，主导 KOC 直播活动，驱动参与 KOC 的 ACU 与场观数据提升。",
-        "en": "From 0-1 tournament design to a repeatable ops SOP — drove engagement and watch metrics for KOC streamers."
+        "zh": "从 0-1 设计团体积分对抗赛，到转向更轻量的小游戏日并沉淀每周常态 SOP——用数据复盘判断一场活动能不能破圈、能不能复利。",
+        "en": "From a 0-1 team tournament to a lighter mini-game day and a weekly SOP — judging with data whether an event can break out and compound."
       },
       "roleShort": {
-        "zh": "媒介运营 / 主导策划",
-        "en": "Media Ops / Lead"
+        "zh": "媒介运营 · 活动策划",
+        "en": "Media Ops · Event Lead"
       },
       "roleFull": {
-        "zh": "主导“团体积分对抗赛”等活动：方案推进、主播沟通、执行跟进与效果复盘，并沉淀常态化活动运营 SOP。",
-        "en": "Led team-points tournaments: proposals, streamer comms, execution and review — then codified the recurring ops SOP."
+        "zh": "主导「团体积分对抗赛」与「小游戏日」：赛制设计、主播对接、执行跟进与数据复盘，并把验证成功的轻量模式沉淀为每周常态活动与运营 SOP。",
+        "en": "Led the team-points tournament and mini-game day: format design, streamer comms, execution and data review — then codified the winning lightweight model into a weekly program and ops SOP."
       },
       "outcome": {
         "value": "100%↑",
         "caption": {
-          "zh": "参与 KOC 的 ACU 与场观数据翻倍提升",
-          "en": "ACU & viewers roughly doubled for participating KOCs"
+          "zh": "参与主播的直播数据翻倍提升",
+          "en": "Participating streamers' data roughly doubled"
         }
       },
       "points": [
         {
-          "zh": "赛制 0-1 设计（团体积分对抗赛）",
-          "en": "0-1 tournament design (team points battle)"
+          "zh": "为小众冷门游戏策划赛事，目标破圈提热度",
+          "en": "Event for a niche title, aimed at breakout & heat"
         },
         {
-          "zh": "赏金机制：制造对抗与“造梗”",
-          "en": "Bounty rule: manufactured rivalry and meme moments"
+          "zh": "赛制 0-1 设计：赏金 / 积分 / 轮换制造对抗与悬念",
+          "en": "0-1 format: bounty, scoring & rotation for rivalry and suspense"
         },
         {
-          "zh": "积分机制：咬紧比分，把悬念留到最后",
-          "en": "Scoring system: kept the scoreline, suspense to the end"
+          "zh": "数据复盘：留住核心玩家，但未达破圈目标",
+          "en": "Review: held the core, but missed the breakout goal"
         },
         {
-          "zh": "高频轮换：把观众转化为“精神股东”",
-          "en": "Frequent rotation: viewers became invested “stakeholders”"
+          "zh": "低门槛 · 娱乐化：转向小游戏日矩阵",
+          "en": "Lower barrier, more fun: the pivot to Mini-game Day"
         },
         {
-          "zh": "数据复盘与高光时刻（22:23 惜败）",
-          "en": "Data review & highlight moments (a 22:23 near-win)"
+          "zh": "参与主播直播数据普遍翻倍",
+          "en": "Participating streamers' data broadly doubled"
         },
         {
-          "zh": "赛制迭代：1v1 → 1v7，引入卧底机制",
-          "en": "Iteration: 1v1 → 1v7 with an imposter twist"
-        },
-        {
-          "zh": "沉淀常态化活动执行 SOP",
-          "en": "Codified a recurring event-run SOP"
+          "zh": "周末小游戏日常态化，沉淀游戏玩法 SOP",
+          "en": "Weekend Mini-game Day made routine; gameplay SOP codified"
         }
       ],
       "image": "3e3b159b-bab5-4f81-b88d-539b253de38d-1788004106371.png",
@@ -1254,6 +1250,303 @@
     "tech": {
       "zh": "Python · Gradio · Bilibili API · LLM · SQL / Excel",
       "en": "Python · Gradio · Bilibili API · LLM · SQL / Excel"
+    }
+  },
+  "GAME_CASE": {
+    "hero": {
+      "kicker": {
+        "zh": "案例研究 · 项目 03",
+        "en": "Case Study · Project 03"
+      },
+      "title": {
+        "zh": "从一场高门槛赛事，到每周一次的小游戏日。",
+        "en": "From a high-threshold tournament to a weekly mini-game day."
+      },
+      "sub": {
+        "zh": "一次想给游戏破圈的活动，如何变成一套每周都能跑的运营系统。",
+        "en": "How a campaign meant to break the game out became an ops system that runs every week."
+      },
+      "intro": {
+        "zh": "一款小众冷门的游戏，需要一场活动把热度拉起来。从 0-1 设计团体积分对抗赛，到转向更轻量的小游戏日，我用数据复盘一步步校准方向，最终把它做成每周常态并沉淀出 SOP。",
+        "en": "A niche title needed a campaign to lift its heat. From a 0-1 team points battle to a lighter mini-game day, I recalibrated the direction step by step with data — finally making it a weekly routine and codifying the SOP."
+      },
+      "tags": [
+        {
+          "zh": "游戏运营",
+          "en": "Game Ops"
+        },
+        {
+          "zh": "活动策划",
+          "en": "Event Design"
+        },
+        {
+          "zh": "数据复盘",
+          "en": "Data Review"
+        }
+      ],
+      "role": {
+        "zh": "媒介运营 · 活动策划 · 全链路执行",
+        "en": "Media Ops · Event Lead · Full-loop Execution"
+      },
+      "context": {
+        "zh": "工作项目 / KOC 直播活动运营",
+        "en": "Work project / KOC livestream ops"
+      }
+    },
+    "stages": [
+      {
+        "no": "01",
+        "kicker": {
+          "zh": "起点",
+          "en": "Where it started"
+        },
+        "title": {
+          "zh": "一款小众游戏，需要一场活动把热度做起来。",
+          "en": "A niche title needed a campaign to build heat."
+        },
+        "body": {
+          "zh": "游戏本身偏小众冷门，自然流量有限，想被更多人看到，就得靠活动破圈、提高热度。参考其他游戏的赛事赛制，我主导策划了一场从 0 到 1 的「团体积分对抗赛」——目标很直接：让更多人知道这款游戏。",
+          "en": "The title was niche and cold, with limited organic reach. To be seen by more people, it needed an event to break out and build heat. Modeling other games' tournament formats, I led a from-scratch \"team points battle\" — with one direct goal: get more people to know the game."
+        },
+        "flow": [
+          {
+            "zh": "破圈",
+            "en": "Break out"
+          },
+          {
+            "zh": "提高热度",
+            "en": "Build heat"
+          },
+          {
+            "zh": "拉新增长",
+            "en": "Grow reach"
+          }
+        ]
+      },
+      {
+        "no": "02",
+        "kicker": {
+          "zh": "赛制设计",
+          "en": "Format design"
+        },
+        "title": {
+          "zh": "我把悬念和对抗，设计进了规则里。",
+          "en": "I built suspense and rivalry into the rules."
+        },
+        "body": {
+          "zh": "一场赛事好不好看，除了游戏本身，更取决于赛制怎么搭。我围绕「对抗」「悬念」「参与感」设计规则，让比赛不只看谁强谁赢，而是有故事、有起伏，观众愿意看到最后。",
+          "en": "Whether an event is watchable isn't just the game — it's the format. Around rivalry, suspense and involvement, I shaped rules that gave the match a story and a reason to stay to the end."
+        },
+        "features": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "赏金机制",
+              "en": "Bounty rule"
+            },
+            "d": {
+              "zh": "给击杀设置赏金，制造对抗与「造梗」，让每局都有记忆点。",
+              "en": "Set bounties on takedowns to manufacture rivalry and meme-worthy moments."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "积分机制",
+              "en": "Scoring rule"
+            },
+            "d": {
+              "zh": "咬紧比分，把悬念留到最后一刻，让观众一直悬着心。",
+              "en": "Keep the scoreline tight and the suspense until the final moment."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "高频轮换",
+              "en": "Frequent rotation"
+            },
+            "d": {
+              "zh": "加快节奏、轮换阵容，把观众从旁观者变成「精神股东」。",
+              "en": "Faster rotation turns viewers from bystanders into invested spectators."
+            }
+          }
+        ],
+        "summary": {
+          "zh": "一套能留住观众、也容易被记住的赛制。",
+          "en": "A format that holds viewers and sticks in the memory."
+        }
+      },
+      {
+        "no": "03",
+        "kicker": {
+          "zh": "数据复盘",
+          "en": "A data review"
+        },
+        "title": {
+          "zh": "留住核心玩家很容易，破圈很难。",
+          "en": "Easy to keep the core; hard to break out."
+        },
+        "body": {
+          "zh": "复盘下来数据其实还可以，处于常规水平——玩法和奖励都很吸引核心资深玩家，但并没有达到「破圈」这个初始目标。对普通路人和新手来说，吸引力明显不足。",
+          "en": "On review the numbers were actually fine — around a normal level. The format and rewards strongly attracted the core, veteran players, but it didn't reach the original goal of breaking out. For casual viewers and newcomers, the appeal clearly fell short."
+        },
+        "pains": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "规则复杂",
+              "en": "Complex rules"
+            },
+            "d": {
+              "zh": "上手门槛高，路人还没看懂就流失了。",
+              "en": "Too steep to grasp; casuals drift off before they understand."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "竞技性强",
+              "en": "Too competitive"
+            },
+            "d": {
+              "zh": "偏竞技而非娱乐，非核心玩家没有参与感。",
+              "en": "Skewed to competition, not entertainment — non-core players feel no stake."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "娱乐性不足",
+              "en": "Not fun enough"
+            },
+            "d": {
+              "zh": "缺乏轻松解压的场景，围观价值有限。",
+              "en": "Lacked light, easygoing moments worth tuning in for."
+            }
+          }
+        ],
+        "image": "live-event-data.png",
+        "imageCaption": {
+          "zh": "比赛数据复盘：当场 vs 近期，ACU 与场观对比",
+          "en": "Data review: event day vs recent baseline — ACU & view comparison"
+        }
+      },
+      {
+        "no": "04",
+        "kicker": {
+          "zh": "模式转向",
+          "en": "A pivot"
+        },
+        "title": {
+          "zh": "顺着复盘，我把活动做轻了。",
+          "en": "Following the review, I made the event lighter."
+        },
+        "body": {
+          "zh": "结论很清晰：想让人进来，就得把门槛降下来、把娱乐性做上去。于是我转向「小游戏日」——轻量、低门槛、偏娱乐的麦序房活动，让更多腰尾部主播也能轻松参与。",
+          "en": "The conclusion was clear: to draw people in, lower the threshold and raise the fun. So I pivoted to \"Mini-game Day\" — a light, low-barrier, entertainment-first room event that more mid- and low-tier streamers could join easily."
+        },
+        "flow": [
+          {
+            "zh": "与 KOC 对接",
+            "en": "Coordinate KOCs"
+          },
+          {
+            "zh": "收集反馈",
+            "en": "Collect feedback"
+          },
+          {
+            "zh": "直播切片",
+            "en": "Clip streams"
+          },
+          {
+            "zh": "复盘优化",
+            "en": "Review & refine"
+          }
+        ]
+      },
+      {
+        "no": "05",
+        "kicker": {
+          "zh": "效果与沉淀",
+          "en": "Outcome & codifying"
+        },
+        "title": {
+          "zh": "破圈了，也沉淀下来了。",
+          "en": "It broke out — and it stuck."
+        },
+        "body": {
+          "zh": "官方麦序房模式对腰尾部主播有明显的流量帮扶——几乎每位参与主播的直播数据都翻了一倍。这个轻量模式验证成功后，我把周末小游戏日做成每周固定的常态活动，并沉淀了一套游戏玩法 SOP，用来持续改进体验与效率。",
+          "en": "The official room mode clearly helped mid- and low-tier streamers — nearly every participating streamer's livestream data doubled. Once verified, I made Weekend Mini-game Day a weekly recurring program and codified a gameplay SOP to keep improving the experience and efficiency."
+        },
+        "stats": [
+          {
+            "v": "2×↑",
+            "label": {
+              "zh": "参与主播直播数据翻倍",
+              "en": "participating streamers' data roughly doubled"
+            }
+          },
+          {
+            "v": "↻",
+            "label": {
+              "zh": "小游戏日常态化 · 周末固定",
+              "en": "a weekly, weekend-programmed routine"
+            }
+          },
+          {
+            "v": "1",
+            "label": {
+              "zh": "沉淀出一套游戏玩法 SOP",
+              "en": "a codified gameplay SOP"
+            }
+          }
+        ]
+      }
+    ],
+    "final": {
+      "kicker": {
+        "zh": "最后",
+        "en": "Final"
+      },
+      "title": {
+        "zh": "从一次破圈尝试，到一套每周都能跑的运营系统。",
+        "en": "From one breakout attempt to an ops system that runs every week."
+      },
+      "body": {
+        "zh": "这场活动的起点 KPI 是破圈，第一次没有完全做到——但它来得很有价值：它让我看清，门槛和娱乐性才是决定一场活动能覆盖多少人、能不能跑成常态的关键。",
+        "en": "The campaign's KPI was breakout; the first pass didn't fully hit it — but the miss was valuable. It showed me that threshold and entertainment value are what decide how many people an event reaches and whether it can run as a routine."
+      },
+      "flow": [
+        {
+          "zh": "破圈目标",
+          "en": "Breakout goal"
+        },
+        {
+          "zh": "赛制设计",
+          "en": "Format design"
+        },
+        {
+          "zh": "数据复盘",
+          "en": "Data review"
+        },
+        {
+          "zh": "模式转向",
+          "en": "Pivot"
+        },
+        {
+          "zh": "常态运营",
+          "en": "Make it routine"
+        },
+        {
+          "zh": "沉淀 SOP",
+          "en": "Codify SOP"
+        }
+      ],
+      "gain": {
+        "zh": "最大的收获不是「做了一场火爆的活动」，而是学会了用数据诚实复盘：一次活动能不能复利，取决于它是否可复制、能否常态化；以及，能不能同时做到「留住核心」和「触达路人」。",
+        "en": "The real win wasn't a viral event — it was learning to review honestly with data: whether an event compounds depends on whether it's replicable and can become routine, and whether you can both retain the core and reach the casuals."
+      }
     }
   },
   "HERO_SETTINGS": {

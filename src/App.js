@@ -1,5 +1,5 @@
 import content from './content.json'
-const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE, SENTIMENT_CASE } = content
+const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE, SENTIMENT_CASE, GAME_CASE } = content
 
 const BASE = import.meta.env.BASE_URL
 
@@ -18,7 +18,9 @@ export function App(lang, route = '#/') {
       ? CbCase(CB_CASE, project, L)
       : project.slug === 'bili-sentiment'
         ? CbCase(SENTIMENT_CASE, project, L)
-        : CaseStudy(project, L)
+        : project.slug === 'game-live-ops'
+          ? CbCase(GAME_CASE, project, L)
+          : CaseStudy(project, L)
     : Home(L)
 
   return `
@@ -295,7 +297,7 @@ function CbCase(caseData, project, L) {
       ${CbHero(c.hero, L)}
       ${c.stages.map((st) => renderStage(st, L)).join('')}
       ${CbFinal(c.final, L)}
-      ${CbTech(c.tech, L)}
+      ${c.tech ? CbTech(c.tech, L) : ''}
     </div>
   </section>
   `

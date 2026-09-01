@@ -133,6 +133,7 @@ function renderProjects() {
   const CASE_MAP = {
     'cb-biliagent': { prefix: 'CB_CASE', name: 'CB-BiliAgent' },
     'bili-sentiment': { prefix: 'SENTIMENT_CASE', name: 'B站评论舆情分析工具' },
+    'game-live-ops': { prefix: 'GAME_CASE', name: '游戏直播赛事策划与全链路运营' },
   }
   return state.data.PROJECTS.map((p, i) => {
     const cm = CASE_MAP[p.slug]
