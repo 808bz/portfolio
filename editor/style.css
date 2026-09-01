@@ -207,3 +207,9 @@ textarea.f__input { resize: vertical; min-height: 64px; }
   .pair { grid-template-columns: 1fr; }
   .grid2 { grid-template-columns: 1fr; }
 }
+
+/* nested case block inside a project card */
+.card--case { border-left: 2px solid var(--line-2); }
+.card--case > summary { background: #f2f2f4; font-size: 13px; }
+.card--case .card { margin-bottom: 12px; }
+.card--case .card > summary { background: #f7f7f9; }

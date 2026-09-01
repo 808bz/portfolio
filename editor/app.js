@@ -113,12 +113,16 @@ function renderBasic() {
 }
 
 function renderProjects() {
-  const caseSlugs = ['cb-biliagent', 'bili-sentiment']
+  const CASE_MAP = {
+    'cb-biliagent': { prefix: 'CB_CASE', name: 'CB-BiliAgent' },
+    'bili-sentiment': { prefix: 'SENTIMENT_CASE', name: 'B站评论舆情分析工具' },
+  }
   return state.data.PROJECTS.map((p, i) => {
-    const isCase = caseSlugs.includes(p.slug)
-    const secName = p.slug === 'cb-biliagent' ? 'CB-BiliAgent 案例' : 'B站舆情案例'
+    const cm = CASE_MAP[p.slug]
+    const caseUI = cm
+      ? `<details class="card card--case"><summary>案例详情页（叙事：背景 → 实现 → 效果 → 价值）</summary><div class="card__body">${renderCaseUI(state.data[cm.prefix], cm.prefix, cm.name)}</div></details>`
+      : ''
     return card(`项目 ${p.no} — ${p.title?.zh || ''}`, `
-      ${isCase ? `<p class="hint">此项目详情页在左侧「${secName}」分区编辑，这里只改首页卡片。</p>` : ''}
       <div class="grid2">
         ${fieldFix(`PROJECTS.${i}.no`, '编号')}
         ${imagePicker(`PROJECTS.${i}.image`, '封面大图')}
@@ -127,7 +131,7 @@ function renderProjects() {
       ${pair(`PROJECTS.${i}.category`, '分类标签')}
       ${fieldFix(`PROJECTS.${i}.brief.zh`, '简介（中文）', { area: true })}
       ${fieldFix(`PROJECTS.${i}.brief.en`, '简介（English）', { area: true })}
-      ${isCase ? '' : `
+      ${cm ? caseUI : `
         ${pair(`PROJECTS.${i}.roleShort`, '角色简写')}
         ${fieldFix(`PROJECTS.${i}.roleFull.zh`, '角色说明（中文）', { area: true })}
         ${fieldFix(`PROJECTS.${i}.roleFull.en`, '角色说明（English）', { area: true })}
@@ -180,14 +184,6 @@ const CASE_LABELS = {
   stats: '成果数据', v: '数值', label: '说明', pains: '痛点', features: '特性',
   final: '结尾总结', tech: '技术栈', image2: '第二张图', example: '案例', strategies: '策略',
   n: '编号', scenes: '场景',
-}
-
-function renderCb() {
-  return renderCaseUI(state.data.CB_CASE, 'CB_CASE', 'CB-BiliAgent')
-}
-
-function renderSentiment() {
-  return renderCaseUI(state.data.SENTIMENT_CASE, 'SENTIMENT_CASE', 'B站评论舆情分析工具')
 }
 
 function renderCaseUI(c, prefix, name) {
@@ -257,8 +253,6 @@ const VIEWS = {
   experience: renderExperience,
   about: renderAbout,
   contact: renderContact,
-  cb: renderCb,
-  sentiment: renderSentiment,
   images: renderImages,
 }
 const TITLES = {
@@ -267,8 +261,6 @@ const TITLES = {
   experience: '经历',
   about: '关于',
   contact: '联系',
-  cb: 'CB-BiliAgent 案例',
-  sentiment: 'B站舆情案例',
   images: '图片管理',
 }
 
