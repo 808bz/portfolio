@@ -162,15 +162,6 @@ section { scroll-margin-top: 4.5rem; }
 .hero .container { position: relative; }
 .hero .eyebrow { color: var(--accent); margin-bottom: clamp(1.5rem, 4vh, 2.5rem); }
 .hero .display { color: var(--text); max-width: 12ch; }
-/* 标题下一点蓝色 underline 段 */
-.hero .display::after {
-  content: "";
-  display: block;
-  width: clamp(4rem, 12vw, 7rem);
-  height: 4px;
-  margin-top: 0.32em;
-  background: var(--accent);
-}
 .hero__statement { margin-top: clamp(1.25rem, 3vh, 2rem); font-size: var(--fs-4); line-height: 1.55; color: var(--text-2); max-width: 26em; font-weight: 400; }
 .hero__meta { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; gap: 1.75rem; flex-wrap: wrap; font-size: var(--fs-6); color: var(--text-3); letter-spacing: 0.04em; text-transform: uppercase; }
 .hero__meta span { display: inline-flex; align-items: center; gap: 0.4em; }
@@ -180,7 +171,23 @@ section { scroll-margin-top: 4.5rem; }
 .section-head .eyebrow { color: var(--accent); margin-bottom: 1.25rem; }
 
 /* ---------- Selected Work ---------- */
-.work { padding-top: var(--space-section); }
+.work {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  background: var(--surface);
+}
+
+/* 淡蓝 accent 小色块，作「精选作品」标题的编辑锚点 */
+.work .section-head { position: relative; padding-left: 1.25rem; }
+.work .section-head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+}
 .project {
   display: block;
   padding-bottom: clamp(5rem, 9vw, 8rem);
