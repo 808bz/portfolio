@@ -113,8 +113,12 @@ function renderBasic() {
 }
 
 function renderProjects() {
-  return state.data.PROJECTS.map((p, i) =>
-    card(`项目 ${p.no} — ${p.title?.zh || ''}`, `
+  const caseSlugs = ['cb-biliagent', 'bili-sentiment']
+  return state.data.PROJECTS.map((p, i) => {
+    const isCase = caseSlugs.includes(p.slug)
+    const secName = p.slug === 'cb-biliagent' ? 'CB-BiliAgent 案例' : 'B站舆情案例'
+    return card(`项目 ${p.no} — ${p.title?.zh || ''}`, `
+      ${isCase ? `<p class="hint">此项目详情页在左侧「${secName}」分区编辑，这里只改首页卡片。</p>` : ''}
       <div class="grid2">
         ${fieldFix(`PROJECTS.${i}.no`, '编号')}
         ${imagePicker(`PROJECTS.${i}.image`, '封面大图')}
@@ -123,17 +127,19 @@ function renderProjects() {
       ${pair(`PROJECTS.${i}.category`, '分类标签')}
       ${fieldFix(`PROJECTS.${i}.brief.zh`, '简介（中文）', { area: true })}
       ${fieldFix(`PROJECTS.${i}.brief.en`, '简介（English）', { area: true })}
-      ${pair(`PROJECTS.${i}.roleShort`, '角色简写')}
-      ${fieldFix(`PROJECTS.${i}.roleFull.zh`, '角色说明（中文）', { area: true })}
-      ${fieldFix(`PROJECTS.${i}.roleFull.en`, '角色说明（English）', { area: true })}
-      <div class="grid3">
-        ${fieldFix(`PROJECTS.${i}.outcome.value`, '成果数字')}
-      </div>
-      ${pair(`PROJECTS.${i}.outcome.caption`, '成果说明')}
-      ${p.points.map((_, k) => pair(`PROJECTS.${i}.points.${k}`, `要点 ${k + 1}`)).join('')}
-      ${imagePicker(`PROJECTS.${i}.image2`, '案例页第二张图')}
+      ${isCase ? '' : `
+        ${pair(`PROJECTS.${i}.roleShort`, '角色简写')}
+        ${fieldFix(`PROJECTS.${i}.roleFull.zh`, '角色说明（中文）', { area: true })}
+        ${fieldFix(`PROJECTS.${i}.roleFull.en`, '角色说明（English）', { area: true })}
+        <div class="grid3">
+          ${fieldFix(`PROJECTS.${i}.outcome.value`, '成果数字')}
+        </div>
+        ${pair(`PROJECTS.${i}.outcome.caption`, '成果说明')}
+        ${p.points.map((_, k) => pair(`PROJECTS.${i}.points.${k}`, `要点 ${k + 1}`)).join('')}
+        ${imagePicker(`PROJECTS.${i}.image2`, '案例页第二张图')}
+      `}
     `)
-  ).join('')
+  }).join('')
 }
 
 function renderExperience() {
@@ -163,24 +169,36 @@ function renderContact() {
   `
 }
 
-/* ---------- CB-BiliAgent 案例 ---------- */
+/* ---------- 案例分区（CB-BiliAgent / B站舆情） ---------- */
+
+const CASE_LABELS = {
+  kicker: '眉题', title: '标题', sub: '副标题', intro: '简介', role: '角色',
+  context: '背景', body: '正文', flow: '流程', tags: '标签', imageCaption: '图片说明',
+  wrong: '识别错', right: '正确', note: '注释', insight: '要点', takeaway: '总结',
+  prompt: '提示词', before: 'Before', after: 'After', t: '标题', d: '说明',
+  p: '问题', s: '解决', loop: '迭代方式', summary: '总结语', gain: '收获',
+  stats: '成果数据', v: '数值', label: '说明', pains: '痛点', features: '特性',
+  final: '结尾总结', tech: '技术栈', image2: '第二张图', example: '案例', strategies: '策略',
+  n: '编号', scenes: '场景',
+}
 
 function renderCb() {
-  const c = state.data.CB_CASE
-  const labels = {
-    kicker: '眉题', title: '标题', sub: '副标题', intro: '简介', role: '角色',
-    context: '背景', body: '正文', flow: '流程', tags: '标签', imageCaption: '图片说明',
-    wrong: '识别错', right: '正确', note: '注释', insight: '要点', takeaway: '总结',
-    prompt: '提示词', before: 'Before', after: 'After', t: '标题', d: '说明',
-    p: '问题', s: '解决', loop: '迭代方式', summary: '总结语', gain: '收获',
-  }
+  return renderCaseUI(state.data.CB_CASE, 'CB_CASE', 'CB-BiliAgent')
+}
+
+function renderSentiment() {
+  return renderCaseUI(state.data.SENTIMENT_CASE, 'SENTIMENT_CASE', 'B站评论舆情分析工具')
+}
+
+function renderCaseUI(c, prefix, name) {
   const sec = (title, obj, path) =>
-    `<details class="card" open><summary>${title}</summary><div class="card__body">${cbWalk(obj, path, labels)}</div></details>`
-  let html = sec('顶部 Hero', c.hero, 'CB_CASE.hero')
-  c.stages.forEach((st, i) => {
-    html += sec('阶段 ' + (st.no || i + 1) + ' — ' + (st.title?.zh || ''), st, `CB_CASE.stages.${i}`)
+    `<details class="card" open><summary>${title}</summary><div class="card__body">${cbWalk(obj, path, CASE_LABELS)}</div></details>`
+  let html = sec('顶部 Hero', c.hero, prefix + '.hero')
+  ;(c.stages || []).forEach((st, i) => {
+    html += sec('阶段 ' + (st.no || i + 1) + ' — ' + (st.title?.zh || ''), st, `${prefix}.stages.${i}`)
   })
-  html += sec('结尾总结', c.final, 'CB_CASE.final')
+  if (c.final) html += sec('结尾总结', c.final, prefix + '.final')
+  if (c.tech) html += sec('技术栈', c.tech, prefix + '.tech')
   return html
 }
 
@@ -240,6 +258,7 @@ const VIEWS = {
   about: renderAbout,
   contact: renderContact,
   cb: renderCb,
+  sentiment: renderSentiment,
   images: renderImages,
 }
 const TITLES = {
@@ -249,6 +268,7 @@ const TITLES = {
   about: '关于',
   contact: '联系',
   cb: 'CB-BiliAgent 案例',
+  sentiment: 'B站舆情案例',
   images: '图片管理',
 }
 
