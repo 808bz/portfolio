@@ -1255,5 +1255,23 @@
       "zh": "Python · Gradio · Bilibili API · LLM · SQL / Excel",
       "en": "Python · Gradio · Bilibili API · LLM · SQL / Excel"
     }
+  },
+  "HERO_SETTINGS": {
+    "nameSize": 124,
+    "nameColor": "#1d1d1f",
+    "nameSkew": 0,
+    "nameShadow": true,
+    "shadowSize": 12,
+    "shadowColor": "#2457ff",
+    "eyebrowShow": true,
+    "eyebrowColor": "#2457ff",
+    "statementColor": "#6e6e73",
+    "statementSize": 17,
+    "lineShow": true,
+    "lineColor": "#2457ff",
+    "glowShow": true,
+    "glowOpacity": 0.18,
+    "bgTone": 60,
+    "align": "left"
   }
 }

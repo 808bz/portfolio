@@ -112,6 +112,23 @@ function renderBasic() {
   `
 }
 
+const hval = (k) => state.data.HERO_SETTINGS?.[k]
+const colorField = (k, label) => `<div class="f"><label class="f__label">${label}</label><input type="color" data-path="HERO_SETTINGS.${k}" value="${hval(k) || '#2457ff'}" /></div>`
+const rangeField = (k, label, min, max, step) => `<div class="f"><label class="f__label">${label} <span class="muted">${hval(k)}</span></label><input type="range" data-path="HERO_SETTINGS.${k}" min="${min}" max="${max}" step="${step}" value="${hval(k)}" /></div>`
+const checkField = (k, label) => `<label class="f__check"><input type="checkbox" data-path="HERO_SETTINGS.${k}" ${hval(k) ? 'checked' : ''} /> ${label}</label>`
+const selectField = (k, label, a, b) => `<div class="f"><label class="f__label">${label}</label><select data-path="HERO_SETTINGS.${k}"><option value="${a}" ${hval(k) === a ? 'selected' : ''}>${a}</option><option value="${b}" ${hval(k) === b ? 'selected' : ''}>${b}</option></select></div>`
+
+function renderHero() {
+  return `
+    ${card('主标题', rangeField('nameSize', '字号大小', 60, 200, 2) + colorField('nameColor', '文字颜色') + rangeField('nameSkew', '倾斜角度（0=不斜）', -15, 15, 1) + checkField('nameShadow', '显示阴影') + rangeField('shadowSize', '阴影大小', 0, 30, 1) + colorField('shadowColor', '阴影颜色'))}
+    ${card('眉标', checkField('eyebrowShow', '显示眉标') + colorField('eyebrowColor', '眉标颜色'))}
+    ${card('定位句', colorField('statementColor', '文字颜色') + rangeField('statementSize', '字号', 12, 26, 1))}
+    ${card('斜线', checkField('lineShow', '显示斜线') + colorField('lineColor', '斜线颜色'))}
+    ${card('光斑', checkField('glowShow', '显示光斑') + rangeField('glowOpacity', '光斑强度', 0, 0.4, 0.01))}
+    ${card('背景与对齐', rangeField('bgTone', '背景蓝调强度', 0, 100, 1) + selectField('align', '对齐', 'left', 'center'))}
+  `
+}
+
 function renderProjects() {
   const CASE_MAP = {
     'cb-biliagent': { prefix: 'CB_CASE', name: 'CB-BiliAgent' },
@@ -249,6 +266,7 @@ function renderImages() {
 
 const VIEWS = {
   basic: renderBasic,
+  hero: renderHero,
   projects: renderProjects,
   experience: renderExperience,
   about: renderAbout,
@@ -257,6 +275,7 @@ const VIEWS = {
 }
 const TITLES = {
   basic: '基本信息',
+  hero: 'Hero 设置',
   projects: '项目（作品）',
   experience: '经历',
   about: '关于',
@@ -274,10 +293,15 @@ function renderView() {
 
 function bindInputs() {
   document.querySelectorAll('[data-path]').forEach((el) => {
-    el.addEventListener('input', () => {
-      setPath(state.data, el.dataset.path, el.value)
-      el.closest('.imgrow')?.querySelector('.imgprev')?.remove()
-    })
+    const set = () => {
+      let v = el.value
+      if (el.type === 'checkbox') v = el.checked
+      else if (el.type === 'range') v = parseFloat(el.value)
+      setPath(state.data, el.dataset.path, v)
+      const prev = el.closest('.imgrow')?.querySelector('.imgprev')
+      if (prev) prev.remove()
+    }
+    el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', set)
   })
 }
 

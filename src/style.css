@@ -128,43 +128,49 @@ section { scroll-margin-top: 4.5rem; }
 /* ---------- Hero (L1) ---------- */
 .hero {
   position: relative;
-  padding-top: clamp(9rem, 24vh, 15rem);
-  padding-bottom: clamp(5rem, 14vh, 10rem);
-  min-height: 82vh;
+  padding-top: clamp(9rem, 22vh, 14rem);
+  padding-bottom: clamp(5rem, 13vh, 9rem);
+  min-height: 84vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: var(--hero-bg, linear-gradient(160deg, #fcfbf9 0%, #eef4ff 42%, #d9e6ff 100%));
 }
-/* 一条细 accent 斜线 —— 克制 */
+/* 一条电光蓝斜线动线 */
 .hero::before {
   content: "";
   position: absolute;
   left: 0;
   top: 56%;
-  width: 60%;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), rgba(36, 87, 255, 0));
+  width: 62%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hero-line-color, var(--accent)), rgba(36, 87, 255, 0));
   transform: skewY(-10deg);
-  opacity: 0.5;
+  opacity: calc(var(--hero-line, 1) * 0.55);
   pointer-events: none;
 }
-/* 极淡钴蓝光斑 —— 仅 hero，给空间感 */
+/* 柔光斑 —— 右上，给空间感 */
 .hero::after {
   content: "";
   position: absolute;
   top: -18%;
   right: -8%;
-  width: 52%;
+  width: 50%;
   height: 130%;
-  background: radial-gradient(ellipse at 72% 38%, rgba(36, 87, 255, 0.07), transparent 62%);
+  background: radial-gradient(ellipse at 72% 38%, rgba(36, 87, 255, 0.09), transparent 62%);
+  opacity: calc(var(--hero-glow, 1) * var(--hero-glow-o, 1));
   pointer-events: none;
 }
-.hero .container { position: relative; }
-.hero .eyebrow { color: var(--accent); margin-bottom: clamp(1.5rem, 4vh, 2.5rem); }
-.hero .display { color: var(--text); max-width: 12ch; }
-.hero__statement { margin-top: clamp(1.25rem, 3vh, 2rem); font-size: var(--fs-4); line-height: 1.55; color: var(--text-2); max-width: 26em; font-weight: 400; }
-.hero__meta { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; gap: 1.75rem; flex-wrap: wrap; font-size: var(--fs-6); color: var(--text-3); letter-spacing: 0.04em; text-transform: uppercase; }
-.hero__meta span { display: inline-flex; align-items: center; gap: 0.4em; }
+.hero .container { position: relative; text-align: var(--hero-align, left); }
+.hero .eyebrow { color: var(--hero-eyebrow-color, var(--accent)); margin-bottom: clamp(1.5rem, 4vh, 2.5rem); }
+.hero .display {
+  color: var(--hero-color, var(--text));
+  font-size: var(--hero-size, clamp(3.4rem, 9vw, 7.5rem));
+  white-space: nowrap;
+  transform: skew(var(--hero-skew, 0deg));
+  text-shadow: var(--hero-shadow, none);
+}
+.hero__statement { margin-top: clamp(1.25rem, 3vh, 2rem); font-size: var(--hero-stmt-size, var(--fs-4)); line-height: 1.55; color: var(--hero-stmt-color, var(--text-2)); max-width: 26em; font-weight: 400; }
 
 /* ---------- Section head (L2) ---------- */
 .section-head { margin-bottom: clamp(4rem, 8vw, 7rem); }

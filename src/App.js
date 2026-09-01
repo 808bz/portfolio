@@ -55,18 +55,33 @@ function Nav(lang) {
 }
 
 function Hero(L) {
+  const s = content.HERO_SETTINGS || {}
+  const shadow = s.nameShadow ? `${s.shadowSize}px ${s.shadowSize}px 0 ${s.shadowColor}` : 'none'
+  const bg = `linear-gradient(160deg, #fcfbf9 0%, #eef4ff ${Math.max(20, Math.min(70, 42 + (s.bgTone - 60) * 0.6))}%, #d9e6ff 100%)`
+  const style = [
+    `--hero-size:${s.nameSize}px`,
+    `--hero-color:${s.nameColor}`,
+    `--hero-skew:${s.nameSkew}deg`,
+    `--hero-shadow:${shadow}`,
+    `--hero-eyebrow:${s.eyebrowShow ? 1 : 0}`,
+    `--hero-eyebrow-color:${s.eyebrowColor}`,
+    `--hero-stmt-color:${s.statementColor}`,
+    `--hero-stmt-size:${s.statementSize}px`,
+    `--hero-line:${s.lineShow ? 1 : 0}`,
+    `--hero-line-color:${s.lineColor}`,
+    `--hero-glow:${s.glowShow ? 1 : 0}`,
+    `--hero-glow-o:${s.glowOpacity}`,
+    `--hero-bg:${bg}`,
+    `--hero-align:${s.align}`,
+  ].join(';')
   return `
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" style="${style}">
     <div class="container">
-      <p class="eyebrow" data-reveal>${L(CONTENT.roleLine)}</p>
+      <p class="eyebrow" data-reveal style="opacity:var(--hero-eyebrow,1)">${L(CONTENT.roleLine)}</p>
       <h1 class="display" data-reveal data-reveal-delay="1">${L(CONTENT.brand)}</h1>
       <p class="hero__statement" data-reveal data-reveal-delay="2">
         ${L(CONTENT.statement)}
       </p>
-      <div class="hero__meta" data-reveal data-reveal-delay="2">
-        <span>${L(CONTENT.heroMeta.loc)}</span>
-        <span>${L(CONTENT.heroMeta.status)}</span>
-      </div>
     </div>
   </section>
   `
