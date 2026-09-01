@@ -380,7 +380,9 @@ function CbStatsV(st, L) {
       <span class="cb-stat__l">${L(s.label)}</span>
     </div>`
     )
-    .join('')}</div>`
+    .join('')}</div>
+  ${FigureCB(st.image, st.imageCaption, L)}
+  `
 }
 
 function CbExampleV(st, L) {

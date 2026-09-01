@@ -1259,8 +1259,8 @@
         "en": "Case Study · Project 03"
       },
       "title": {
-        "zh": "从一场高门槛赛事，到每周一次的小游戏日。",
-        "en": "From a high-threshold tournament to a weekly mini-game day."
+        "zh": "从一场有门槛赛事，到每周一次的小游戏日。",
+        "en": "From a threshold tournament to a weekly mini-game day."
       },
       "sub": {
         "zh": "一次想给游戏破圈的活动，如何变成一套每周都能跑的运营系统。",
@@ -1305,7 +1305,7 @@
           "en": "A niche title needed a campaign to build heat."
         },
         "body": {
-          "zh": "游戏本身偏小众冷门，自然流量有限，想被更多人看到，就得靠活动破圈、提高热度。参考其他游戏的赛事赛制，我主导策划了一场从 0 到 1 的「团体积分对抗赛」——目标很直接：让更多人知道这款游戏。",
+          "zh": "游戏本身偏冷门，自然流量有限，想被更多人看到，就得靠活动破圈、提高热度。参考其他游戏的赛事赛制，我主导策划了一场从 0 到 1 的「团体积分对抗赛」——目标很直接：让更多人知道这款游戏。",
           "en": "The title was niche and cold, with limited organic reach. To be seen by more people, it needed an event to break out and build heat. Modeling other games' tournament formats, I led a from-scratch \"team points battle\" — with one direct goal: get more people to know the game."
         },
         "flow": [
@@ -1345,7 +1345,7 @@
               "en": "Bounty rule"
             },
             "d": {
-              "zh": "给击杀设置赏金，制造对抗与「造梗」，让每局都有记忆点。",
+              "zh": "给击杀设置赏金，制造对抗与造梗，让每局都有记忆点。",
               "en": "Set bounties on takedowns to manufacture rivalry and meme-worthy moments."
             }
           },
@@ -1367,7 +1367,7 @@
               "en": "Frequent rotation"
             },
             "d": {
-              "zh": "加快节奏、轮换阵容，把观众从旁观者变成「精神股东」。",
+              "zh": "加快节奏、轮换阵容，观众从旁观者变成参与者。",
               "en": "Faster rotation turns viewers from bystanders into invested spectators."
             }
           }
@@ -1375,6 +1375,11 @@
         "summary": {
           "zh": "一套能留住观众、也容易被记住的赛制。",
           "en": "A format that holds viewers and sticks in the memory."
+        },
+        "image": "",
+        "imageCaption": {
+          "zh": "",
+          "en": ""
         }
       },
       {
@@ -1410,8 +1415,8 @@
               "en": "Too competitive"
             },
             "d": {
-              "zh": "偏竞技而非娱乐，非核心玩家没有参与感。",
-              "en": "Skewed to competition, not entertainment — non-core players feel no stake."
+              "zh": "偏竞技，门槛高。",
+              "en": "Skewed to competition — non-core players feel no stake."
             }
           },
           {
@@ -1421,12 +1426,12 @@
               "en": "Not fun enough"
             },
             "d": {
-              "zh": "缺乏轻松解压的场景，围观价值有限。",
-              "en": "Lacked light, easygoing moments worth tuning in for."
+              "zh": "对泛娱乐玩家吸引力不足",
+              "en": "It lacks appeal to casual gamers."
             }
           }
         ],
-        "image": "live-event-data.png",
+        "image": "积分对抗赛数据-1788281464786.png",
         "imageCaption": {
           "zh": "比赛数据复盘：当场 vs 近期，ACU 与场观对比",
           "en": "Data review: event day vs recent baseline — ACU & view comparison"
@@ -1443,7 +1448,7 @@
           "en": "Following the review, I made the event lighter."
         },
         "body": {
-          "zh": "结论很清晰：想让人进来，就得把门槛降下来、把娱乐性做上去。于是我转向「小游戏日」——轻量、低门槛、偏娱乐的麦序房活动，让更多腰尾部主播也能轻松参与。",
+          "zh": "结论很清晰：想让更多人参与活动，就得把门槛降下来、把娱乐性做上去。于是我转向「小游戏日」——轻量、低门槛、偏娱乐的麦序房活动，让更多腰尾部主播也能轻松参与。",
           "en": "The conclusion was clear: to draw people in, lower the threshold and raise the fun. So I pivoted to \"Mini-game Day\" — a light, low-barrier, entertainment-first room event that more mid- and low-tier streamers could join easily."
         },
         "flow": [
@@ -1472,7 +1477,7 @@
           "en": "Outcome & codifying"
         },
         "title": {
-          "zh": "破圈了，也沉淀下来了。",
+          "zh": "达标了，也沉淀下来了。",
           "en": "It broke out — and it stuck."
         },
         "body": {
@@ -1481,7 +1486,7 @@
         },
         "stats": [
           {
-            "v": "2×↑",
+            "v": "100%↑",
             "label": {
               "zh": "参与主播直播数据翻倍",
               "en": "participating streamers' data roughly doubled"
@@ -1495,13 +1500,18 @@
             }
           },
           {
-            "v": "1",
+            "v": "4",
             "label": {
-              "zh": "沉淀出一套游戏玩法 SOP",
-              "en": "a codified gameplay SOP"
+              "zh": "沉淀出四套游戏玩法SOP",
+              "en": "4 codified gameplay SOP"
             }
           }
-        ]
+        ],
+        "image": "",
+        "imageCaption": {
+          "zh": "",
+          "en": ""
+        }
       }
     ],
     "final": {
@@ -1544,7 +1554,7 @@
         }
       ],
       "gain": {
-        "zh": "最大的收获不是「做了一场火爆的活动」，而是学会了用数据诚实复盘：一次活动能不能复利，取决于它是否可复制、能否常态化；以及，能不能同时做到「留住核心」和「触达路人」。",
+        "zh": "最大的收获不是做了一场火爆的活动，而是学会了用数据诚实复盘：一次活动能不能复利，取决于它是否可复制、能否常态化；以及，能不能同时做到留住核心和触达路人。",
         "en": "The real win wasn't a viral event — it was learning to review honestly with data: whether an event compounds depends on whether it's replicable and can become routine, and whether you can both retain the core and reach the casuals."
       }
     }
