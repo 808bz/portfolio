@@ -910,5 +910,340 @@
       "zh": "Python · Gradio · yt-dlp · ffmpeg · Demucs · faster-whisper · DeepSeek",
       "en": "Python · Gradio · yt-dlp · ffmpeg · Demucs · faster-whisper · DeepSeek"
     }
+  },
+  "SENTIMENT_CASE": {
+    "hero": {
+      "kicker": {
+        "zh": "AI 产品 · 项目 02",
+        "en": "AI Product · Project 02"
+      },
+      "title": {
+        "zh": "把评论区，变成能读懂的洞察。",
+        "en": "Turning a comment section into readable insight."
+      },
+      "sub": {
+        "zh": "一个面向 B 站评论的舆情分析工具。",
+        "en": "A sentiment tool for Bilibili comments."
+      },
+      "intro": {
+        "zh": "从一条链接，到一份结构化、能指导决策的用户洞察。",
+        "en": "From a single link to structured insight you can act on."
+      },
+      "tags": [
+        {
+          "zh": "AI 产品",
+          "en": "AI Product"
+        },
+        {
+          "zh": "内容工具",
+          "en": "Content Tool"
+        },
+        {
+          "zh": "工作流设计",
+          "en": "Workflow Design"
+        }
+      ],
+      "role": {
+        "zh": "产品设计 · AI 应用 · 全流程迭代",
+        "en": "Product Design · AI Application · Full-cycle"
+      },
+      "context": {
+        "zh": "个人项目 / AI 内容工具",
+        "en": "Personal / AI content tool"
+      }
+    },
+    "stages": [
+      {
+        "no": "01",
+        "kicker": {
+          "zh": "从一个真实需求开始",
+          "en": "It started with a real need"
+        },
+        "title": {
+          "zh": "一千条评论，没人能一眼看懂风向。",
+          "en": "A thousand comments — and no quick way to read the room."
+        },
+        "body": {
+          "zh": "B 站热门视频的评论区动辄上千条，人工一条条翻既慢，又难统一判断标准；而市面上的舆情工具大多针对微博和抖音，B 站的专用工具又少又贵。",
+          "en": "Hot Bilibili videos rack up thousands of comments — slow to read one by one, and hard to judge consistently. Most sentiment tools target Weibo and Douyin; Bilibili-specific ones are rare and pricey."
+        },
+        "pains": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "信息过载",
+              "en": "Info overload"
+            },
+            "d": {
+              "zh": "热门视频评论动辄上千条，人工翻阅成本高。",
+              "en": "Thousands of comments, costly to read manually."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "分析低效",
+              "en": "Inefficient"
+            },
+            "d": {
+              "zh": "人工判断标准难统一，逻辑散乱，容易漏掉核心观点和争议焦点。",
+              "en": "Hard to standardize; easy to miss the core opinions and debates."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "工具缺失",
+              "en": "Tool gap"
+            },
+            "d": {
+              "zh": "市面舆情工具多针对微博/抖音，B 站专属工具少且贵。",
+              "en": "Most tools target Weibo/Douyin; Bilibili ones are rare and pricey."
+            }
+          }
+        ]
+      },
+      {
+        "no": "02",
+        "kicker": {
+          "zh": "我是怎么实现的",
+          "en": "How I built it"
+        },
+        "title": {
+          "zh": "从一条链接，到一份结构化报告。",
+          "en": "From a link to a structured report."
+        },
+        "body": {
+          "zh": "我把它拆成一个 AI 能接住的产品流程：给一条 BV 号或链接，自动采集评论和子回复，再从情感、观点、争议焦点多个维度分析，生成一份结构化的 Markdown 报告，最后落到具体的运营判断上。",
+          "en": "I broke it into a flow the AI could hold: paste a BV id or link, auto-collect comments and replies, analyze across sentiment and opinions, emit a structured report, then land on a concrete ops call."
+        },
+        "flow": [
+          {
+            "zh": "链接识别",
+            "en": "Detect link"
+          },
+          {
+            "zh": "评论采集",
+            "en": "Collect"
+          },
+          {
+            "zh": "AI 分析",
+            "en": "Analyze"
+          },
+          {
+            "zh": "报告生成",
+            "en": "Report"
+          },
+          {
+            "zh": "运营判断",
+            "en": "Ops call"
+          }
+        ],
+        "image": "bili-tool.png",
+        "imageCaption": {
+          "zh": "生成的结构化分析报告",
+          "en": "The structured report it outputs"
+        }
+      },
+      {
+        "no": "03",
+        "kicker": {
+          "zh": "让它真正能用",
+          "en": "Making it usable"
+        },
+        "title": {
+          "zh": "从命令行，到双击即用的桌面应用。",
+          "en": "From a CLI to a double-click desktop app."
+        },
+        "body": {
+          "zh": "功能跑通只是开始，最终它得被运营真的用起来。",
+          "en": "Shipping worked — but the point was for ops to actually use it."
+        },
+        "features": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "命令行脚本",
+              "en": "CLI script"
+            },
+            "d": {
+              "zh": "第一版就能跑通全流程，但只能在终端用，门槛高。",
+              "en": "Hit the full flow, but terminal-only and steep."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "Web 界面",
+              "en": "Web UI"
+            },
+            "d": {
+              "zh": "加了可视化界面、降低门槛，但仍依赖浏览器，体验不连贯。",
+              "en": "Added a visual UI, but still browser-bound and incoherent."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "桌面应用",
+              "en": "Desktop app"
+            },
+            "d": {
+              "zh": "25MB 单文件，无需装 Python，双击即开即用。",
+              "en": "A 25MB single file — no Python, double-click to run."
+            }
+          }
+        ],
+        "summary": {
+          "zh": "每一步都在回答同一个问题：它离“运营真的会用它”还差多远。",
+          "en": "Every step answered one question: how far is it from “ops would actually use it.”"
+        },
+        "image": "bili-tool-ui.png",
+        "imageCaption": {
+          "zh": "桌面应用界面",
+          "en": "The desktop app"
+        }
+      },
+      {
+        "no": "04",
+        "kicker": {
+          "zh": "达成了什么",
+          "en": "What it delivered"
+        },
+        "title": {
+          "zh": "从 0 到 1，跑通了一条完整的闭环。",
+          "en": "From 0 to 1 — a full loop that works."
+        },
+        "body": {
+          "zh": "打通了 B 站评论采集的全链路，让 AI 多维度情感分析真正落地，最终交付一个可运行的桌面级产品。",
+          "en": "It opened the full Bilibili comment pipeline and got multi-dimensional AI sentiment genuinely running."
+        },
+        "stats": [
+          {
+            "v": "0→1",
+            "label": {
+              "zh": "从想法到落地",
+              "en": "idea to shipped"
+            }
+          },
+          {
+            "v": "25MB",
+            "label": {
+              "zh": "单文件桌面应用",
+              "en": "single-file desktop app"
+            }
+          },
+          {
+            "v": "5",
+            "label": {
+              "zh": "AI 分析维度",
+              "en": "analysis dimensions"
+            }
+          }
+        ]
+      },
+      {
+        "no": "05",
+        "kicker": {
+          "zh": "在实际工作里，它带来什么",
+          "en": "What it brings to real work"
+        },
+        "title": {
+          "zh": "它不是一个玩具，是一类可复用的能力。",
+          "en": "Not a toy — a reusable capability."
+        },
+        "body": {
+          "zh": "把评论变成能决策的信息，这件事本身可以被很多岗位复用。",
+          "en": "Turning comments into decidable insight is reusable across roles."
+        },
+        "features": [
+          {
+            "n": "01",
+            "t": {
+              "zh": "B 站账号运营",
+              "en": "Account ops"
+            },
+            "d": {
+              "zh": "分析自己或竞品视频的评论，快速了解用户真实反馈与偏好。",
+              "en": "Read your own or a competitor’s comments to gauge real feedback."
+            }
+          },
+          {
+            "n": "02",
+            "t": {
+              "zh": "品牌监测",
+              "en": "Brand watch"
+            },
+            "d": {
+              "zh": "监控大家对某个话题或商品的态度，把握舆情走势。",
+              "en": "Track sentiment on a topic or product to stay ahead."
+            }
+          },
+          {
+            "n": "03",
+            "t": {
+              "zh": "内容策略制定",
+              "en": "Content strategy"
+            },
+            "d": {
+              "zh": "看清观众关心的争议点和高频观点，直接指导选题方向。",
+              "en": "Surface the debates and top opinions that steer topic choice."
+            }
+          }
+        ],
+        "summary": {
+          "zh": "它把“看评论区”从一件没人愿意做的事，变成一件 1 分钟就能完成的事。",
+          "en": "It turns reading the comment section from a chore into a minute-long task."
+        }
+      }
+    ],
+    "final": {
+      "kicker": {
+        "zh": "从工具到工作流",
+        "en": "From tool to workflow"
+      },
+      "title": {
+        "zh": "从工具到工作流。",
+        "en": "From a tool to a workflow."
+      },
+      "body": {
+        "zh": "它没有一开始就长成现在这样，而是在真实使用里不断暴露问题、再一次次迭代形成的。",
+        "en": "It didn’t start as this. It was shaped by real problems, iteration by iteration."
+      },
+      "flow": [
+        {
+          "zh": "发现需求",
+          "en": "Discover"
+        },
+        {
+          "zh": "快速验证",
+          "en": "Prototype"
+        },
+        {
+          "zh": "真实使用",
+          "en": "Use"
+        },
+        {
+          "zh": "暴露问题",
+          "en": "Hear problems"
+        },
+        {
+          "zh": "产品迭代",
+          "en": "Iterate"
+        },
+        {
+          "zh": "完整工作流",
+          "en": "Workflow"
+        }
+      ],
+      "gain": {
+        "zh": "最大的收获不是“做出了一个 AI 工具”，而是第一次完整走过了从发现需求、到产品迭代、再到稳定可用的整个周期。",
+        "en": "The real win wasn’t an AI tool — it was living the whole arc from need to iteration to something that just works."
+      }
+    },
+    "tech": {
+      "zh": "Python · Gradio · Bilibili API · LLM · SQL / Excel",
+      "en": "Python · Gradio · Bilibili API · LLM · SQL / Excel"
+    }
   }
 }

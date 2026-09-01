@@ -1,5 +1,5 @@
 import content from './content.json'
-const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE } = content
+const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE, SENTIMENT_CASE } = content
 
 const BASE = import.meta.env.BASE_URL
 
@@ -15,8 +15,10 @@ export function App(lang, route = '#/') {
   const project = isProject ? PROJECTS.find((p) => `#/project/${p.slug}` === route) : null
   const view = project
     ? project.slug === 'cb-biliagent'
-      ? CbCase(project, L)
-      : CaseStudy(project, L)
+      ? CbCase(CB_CASE, project, L)
+      : project.slug === 'bili-sentiment'
+        ? CbCase(SENTIMENT_CASE, project, L)
+        : CaseStudy(project, L)
     : Home(L)
 
   return `
@@ -260,8 +262,8 @@ function Footer(L) {
  *  CB-BiliAgent custom case study
  * ------------------------------------------------------------------ */
 
-function CbCase(project, L) {
-  const c = CB_CASE
+function CbCase(caseData, project, L) {
+  const c = caseData
   return `
   <section class="case cb" id="detail">
     <div class="container">
@@ -336,10 +338,24 @@ function renderStage(st, L) {
   else if (st.strategies) visual = CbQualityV(st, L)
   else if (st.example) visual = CbExampleV(st, L)
   else if (st.flow) visual = FlowStrip(st.flow, L)
-  if (st.image && !st.cases && !st.features && !st.pains && !st.strategies && !st.example) {
+  else if (st.stats) visual = CbStatsV(st, L)
+  if (st.image && !st.cases && !st.features && !st.pains && !st.strategies && !st.example && !st.stats) {
     visual += FigureCB(st.image, st.imageCaption, L)
   }
   return `<section class="cb-sec" data-reveal>${stageHead(st, L)}${visual}</section>`
+}
+
+function CbStatsV(st, L) {
+  return `
+  <div class="cb-stats">${st.stats
+    .map(
+      (s) => `
+    <div class="cb-stat">
+      <span class="cb-stat__v">${s.v}</span>
+      <span class="cb-stat__l">${L(s.label)}</span>
+    </div>`
+    )
+    .join('')}</div>`
 }
 
 function CbExampleV(st, L) {
