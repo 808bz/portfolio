@@ -1257,20 +1257,20 @@
     }
   },
   "HERO_SETTINGS": {
-    "nameSize": 124,
-    "nameColor": "#1d1d1f",
-    "nameSkew": 0,
+    "nameSize": 136,
+    "nameColor": "#4262ff",
+    "nameSkew": 15,
     "nameShadow": true,
     "shadowSize": 12,
-    "shadowColor": "#2457ff",
+    "shadowColor": "#d6d6d6",
     "eyebrowShow": true,
-    "eyebrowColor": "#2457ff",
+    "eyebrowColor": "#fe4d39",
     "statementColor": "#6e6e73",
-    "statementSize": 17,
+    "statementSize": 19,
     "lineShow": true,
     "lineColor": "#2457ff",
     "glowShow": true,
-    "glowOpacity": 0.18,
+    "glowOpacity": 0.2,
     "bgTone": 60,
     "align": "left"
   }
