@@ -5,8 +5,8 @@
       "en": "Zhao Tianxiang"
     },
     "roleLine": {
-      "zh": "内容 · 产品 · AI · 游戏",
-      "en": "Content · Product · AI · Game"
+      "zh": "内容 · 产品 · AI ",
+      "en": "Content · Product · AI "
     },
     "statement": {
       "zh": "内容运营是起点，产品思维与 AI 是工具，持续把洞察变成可执行的方法。",
@@ -63,6 +63,16 @@
     "intent": {
       "zh": "求职意向",
       "en": "Looking for"
+    },
+    "heroMeta": {
+      "loc": {
+        "zh": "杭州",
+        "en": "Based in Hangzhou"
+      },
+      "status": {
+        "zh": "开放合作",
+        "en": "Open to work"
+      }
     }
   },
   "PROJECTS": [
@@ -918,7 +928,7 @@
         "en": "AI Product · Project 02"
       },
       "title": {
-        "zh": "把评论区，变成能读懂的洞察。",
+        "zh": "评论有声：让数据开口说话",
         "en": "Turning a comment section into readable insight."
       },
       "sub": {

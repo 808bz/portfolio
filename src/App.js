@@ -63,6 +63,10 @@ function Hero(L) {
       <p class="hero__statement" data-reveal data-reveal-delay="2">
         ${L(CONTENT.statement)}
       </p>
+      <div class="hero__meta" data-reveal data-reveal-delay="2">
+        <span>${L(CONTENT.heroMeta.loc)}</span>
+        <span>${L(CONTENT.heroMeta.status)}</span>
+      </div>
     </div>
   </section>
   `
@@ -96,6 +100,10 @@ function ProjectItem(p, L) {
   return `
   <article class="project">
     <a class="project__link" href="#/project/${p.slug}">
+      <div class="project__head" data-reveal>
+        <span class="project__no">${p.no}</span>
+        <span class="project__cat">${L(p.category)}</span>
+      </div>
       ${Visual(p, L, 'figure--ratio-169')}
       <div class="project__card" data-reveal>
         <h3 class="project__title">${L(p.title)}</h3>
