@@ -1567,7 +1567,7 @@
     "shadowSize": 12,
     "shadowColor": "#d6d6d6",
     "eyebrowShow": true,
-    "eyebrowColor": "#fe4d39",
+    "eyebrowColor": "#000000",
     "statementColor": "#6e6e73",
     "statementSize": 19,
     "lineShow": true,
