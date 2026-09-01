@@ -8,16 +8,16 @@
 
 :root {
   /* 颜色 */
-  --bg: #ffffff;
-  --surface: #f6f6f4;          /* 浅冷灰 —— 仅个别 section 用 */
+  --bg: #fcfbf9;               /* 暖纸白，取代纯白 */
+  --surface: #f5f4f1;          /* 浅暖灰 */
   --text: #1d1d1f;
   --text-2: #6e6e73;
   --text-3: #9a9aa0;
   --accent: #2457ff;           /* cobalt blue */
-  --accent-dim: rgba(36, 87, 255, 0.10);
+  --accent-dim: rgba(36, 87, 255, 0.09);
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.16);
-  --nav-bg: rgba(255, 255, 255, 0.78);
+  --nav-bg: rgba(252, 251, 249, 0.82);
 
   /* 字体 */
   --font-sans: "InterVariable", "Inter Variable", Inter, -apple-system,
@@ -53,7 +53,8 @@
 * { margin: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   color: var(--text);
   font-family: var(--font-sans);
   font-size: var(--fs-4);
@@ -147,6 +148,17 @@ section { scroll-margin-top: 4.5rem; }
   opacity: 0.5;
   pointer-events: none;
 }
+/* 极淡钴蓝光斑 —— 仅 hero，给空间感 */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -18%;
+  right: -8%;
+  width: 52%;
+  height: 130%;
+  background: radial-gradient(ellipse at 72% 38%, rgba(36, 87, 255, 0.07), transparent 62%);
+  pointer-events: none;
+}
 .hero .container { position: relative; }
 .hero .eyebrow { color: var(--accent); margin-bottom: clamp(1.5rem, 4vh, 2.5rem); }
 .hero .display { color: var(--text); max-width: 12ch; }
@@ -200,7 +212,7 @@ section { scroll-margin-top: 4.5rem; }
 .project__meta { margin-top: 1.4rem; display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; }
 .project__cta { font-size: var(--fs-6); font-weight: 600; letter-spacing: 0.06em; color: var(--text-2); text-transform: uppercase; transition: color var(--dur-1) var(--ease); }
 .project__link:hover .project__cta { color: var(--accent); }
-.tag { display: inline-block; font-size: var(--fs-6); color: var(--text-2); border: 1px solid var(--border-strong); border-radius: 999px; padding: 0.28rem 0.85rem; line-height: 1.3; white-space: nowrap; }
+.tag { display: inline-block; font-size: var(--fs-6); color: var(--accent); background: var(--accent-dim); border: 1px solid rgba(36, 87, 255, 0.14); border-radius: 999px; padding: 0.28rem 0.85rem; line-height: 1.3; white-space: nowrap; }
 
 /* ---------- Figures ---------- */
 .figure { position: relative; display: block; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
