@@ -58,8 +58,8 @@ function readContent() {
 function runGit(args) {
   return new Promise((resolve) => {
     execFile('git', ['-C', ROOT, ...args], { timeout: 60000 }, (err, stdout, stderr) => {
-      if (err) resolve({ ok: false, msg: (stderr || err.message || '').trim().slice(0, 600) })
-      else resolve({ ok: true, msg: stdout.trim().slice(0, 600) })
+      const msg = (stdout || stderr || err?.message || '').trim().slice(0, 600)
+      resolve({ ok: !err, msg })
     })
   })
 }
@@ -150,21 +150,26 @@ async function handle(req, res) {
 
   /* API：提交并推送上线 */
   if (method === 'POST' && p === '/api/publish') {
+    const stamp = new Date().toLocaleString('zh-CN', { hour12: false })
     const add = await runGit(['add', '-A'])
     if (!add.ok) return sendJSON(res, 500, { ok: false, msg: 'git add 失败：' + add.msg })
-    const stamp = new Date().toLocaleString('zh-CN', { hour12: false })
     const commit = await runGit(['commit', '-m', `作品集内容更新 - ${stamp}`])
+    let hadChange = true
     if (!commit.ok) {
       if (/nothing to commit|no changes added/i.test(commit.msg)) {
-        return sendJSON(res, 200, { ok: true, msg: '内容没有变化，无需发布。' })
+        hadChange = false
+      } else {
+        return sendJSON(res, 500, { ok: false, msg: '提交失败：' + commit.msg })
       }
-      return sendJSON(res, 500, { ok: false, msg: '提交失败：' + commit.msg })
     }
     const push = await runGit(['push', 'origin', 'HEAD'])
     if (!push.ok) {
+      if (/Everything up-to-date/i.test(push.msg)) {
+        return sendJSON(res, 200, { ok: true, msg: '内容已被上线，网站无需更新。' })
+      }
       return sendJSON(res, 500, {
         ok: false,
-        msg: '本地已提交，但推送失败：' + push.msg + '。你可以在终端手动运行：git push',
+        msg: (hadChange ? '已提交，但推送失败：' : '推送失败：') + push.msg + '。你可以在终端手动运行：git push',
       })
     }
     return sendJSON(res, 200, { ok: true, msg: '已推送上线，约 1 分钟后网站自动更新。' })
