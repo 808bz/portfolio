@@ -1376,7 +1376,7 @@
           "zh": "一套能留住观众、也容易被记住的赛制。",
           "en": "A format that holds viewers and sticks in the memory."
         },
-        "image": "",
+        "image": "积分对抗赛规则-1788283726886.png",
         "imageCaption": {
           "zh": "",
           "en": ""
@@ -1411,23 +1411,23 @@
           {
             "n": "02",
             "t": {
-              "zh": "竞技性强",
-              "en": "Too competitive"
+              "zh": "互动少",
+              "en": "Lack of interaction"
             },
             "d": {
-              "zh": "偏竞技，门槛高。",
-              "en": "Skewed to competition — non-core players feel no stake."
+              "zh": "主播之间基本无交流互动",
+              "en": "Little to no communication between the hosts."
             }
           },
           {
             "n": "03",
             "t": {
-              "zh": "娱乐性不足",
-              "en": "Not fun enough"
+              "zh": "预热规模小",
+              "en": "Small-scale promotion"
             },
             "d": {
-              "zh": "对泛娱乐玩家吸引力不足",
-              "en": "It lacks appeal to casual gamers."
+              "zh": "缺少头部主播带动活动热度发酵",
+              "en": "Lack of major streamers to boost the event — the buzz never really took off."
             }
           }
         ],
@@ -1507,7 +1507,7 @@
             }
           }
         ],
-        "image": "",
+        "image": "小游戏日数据-1788283654973.png",
         "imageCaption": {
           "zh": "",
           "en": ""
