@@ -1,5 +1,5 @@
 import content from './content.json'
-const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE, SENTIMENT_CASE, GAME_CASE } = content
+const { CONTENT, PROJECTS, EXPERIENCE, ABOUT, CONTACT, FOOTER, CB_CASE, SENTIMENT_CASE, GAME_CASE, HERO } = content
 
 const BASE = import.meta.env.BASE_URL
 
@@ -58,32 +58,29 @@ function Nav(lang) {
 
 function Hero(L) {
   const s = content.HERO_SETTINGS || {}
+  const H = HERO || {}
   const shadow = s.nameShadow ? `${s.shadowSize}px ${s.shadowSize}px 0 ${s.shadowColor}` : 'none'
-  const bg = `linear-gradient(160deg, #fcfbf9 0%, #eef4ff ${Math.max(20, Math.min(70, 42 + (s.bgTone - 60) * 0.6))}%, #d9e6ff 100%)`
   const style = [
     `--hero-size:${s.nameSize}px`,
     `--hero-color:${s.nameColor}`,
-    `--hero-skew:${s.nameSkew}deg`,
     `--hero-shadow:${shadow}`,
-    `--hero-eyebrow:${s.eyebrowShow ? 1 : 0}`,
-    `--hero-eyebrow-color:${s.eyebrowColor}`,
     `--hero-stmt-color:${s.statementColor}`,
     `--hero-stmt-size:${s.statementSize}px`,
-    `--hero-line:${s.lineShow ? 1 : 0}`,
-    `--hero-line-color:${s.lineColor}`,
-    `--hero-glow:${s.glowShow ? 1 : 0}`,
-    `--hero-glow-o:${s.glowOpacity}`,
-    `--hero-bg:${bg}`,
-    `--hero-align:${s.align}`,
   ].join(';')
+  const tags = (H.tags || []).map((t, i) => `<span class="hero-tag hero-tag--${i + 1}">${L(t)}</span>`).join('')
   return `
   <section class="hero" id="hero" style="${style}">
     <div class="container">
-      <p class="eyebrow" data-reveal style="opacity:var(--hero-eyebrow,1)">${L(CONTENT.roleLine)}</p>
-      <h1 class="display" data-reveal data-reveal-delay="1">${L(CONTENT.brand)}</h1>
-      <p class="hero__statement" data-reveal data-reveal-delay="2">
-        ${L(CONTENT.statement)}
-      </p>
+      <div class="hero__grid">
+        <div class="hero__left">
+          <h1 class="hero__name" data-reveal data-reveal-delay="1">${L(CONTENT.brand)}</h1>
+          <p class="hero__tagline" data-reveal data-reveal-delay="2">${L(H.tagline)}</p>
+          <div class="hero__statement" data-reveal data-reveal-delay="2">
+            <p>${L(CONTENT.statement)}</p>
+          </div>
+        </div>
+        <div class="hero__right" data-reveal data-reveal-delay="2">${tags}</div>
+      </div>
     </div>
   </section>
   `

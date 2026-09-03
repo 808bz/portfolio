@@ -1,4 +1,6 @@
 import '@fontsource-variable/inter'
+import '@fontsource-variable/syne'
+import '@fontsource-variable/jetbrains-mono'
 import { App } from './App.js'
 import { initNav, initReveal } from './main.reveal.js'
 import './style.css'

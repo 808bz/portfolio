@@ -1559,22 +1559,108 @@
       }
     }
   },
+  "HERO": {
+    "badge": {
+      "zh": "2026届 · 游戏内容运营 / AI产品工具流",
+      "en": "Class of 2026 · Game Content Ops / AI Product Tooling"
+    },
+    "tagline": {
+      "zh": "内容运营 × AI产品 × 数据分析",
+      "en": "Content Ops × AI Product × Data Insight"
+    },
+    "sub": {
+      "zh": "中国计量大学应用物理学背景。深耕游戏生态，主导 50+ KOC 矩阵与赛事策划；独立打造可运行的 AI 生产流水线与桌面分析工具。",
+      "en": "Applied Physics from China Jiliang University. Deep in game ecosystems, led 50+ KOC matrix and event planning; independently shipped a running AI production pipeline and a desktop analysis tool."
+    },
+    "ctaWork": {
+      "zh": "探索作品",
+      "en": "Explore Work"
+    },
+    "ctaContact": {
+      "zh": "获取联系方式",
+      "en": "Get in Touch"
+    },
+    "tags": [
+      {
+        "zh": "内容运营矩阵",
+        "en": "CONTENT OPS"
+      },
+      {
+        "zh": "游戏生态增长",
+        "en": "GAME ECOSYSTEM"
+      },
+      {
+        "zh": "AI产品落地",
+        "en": "AI PRODUCT"
+      },
+      {
+        "zh": "数据驱动决策",
+        "en": "DATA INSIGHT"
+      },
+      {
+        "zh": "大学英语六级",
+        "en": "CET-6"
+      }
+    ],
+    "stats": [
+      {
+        "label": {
+          "zh": "AI 切片流水线",
+          "en": "AI Clip Pipeline"
+        },
+        "value": {
+          "zh": "103min 精准截取",
+          "en": "103min precise clipping"
+        }
+      },
+      {
+        "label": {
+          "zh": "主播赛事成效",
+          "en": "Streamer Event Lift"
+        },
+        "value": {
+          "zh": "+100% 数据翻倍",
+          "en": "+100% data doubled"
+        }
+      },
+      {
+        "label": {
+          "zh": "达人协同网络",
+          "en": "Creator Network"
+        },
+        "value": {
+          "zh": "50+ 创作者对接",
+          "en": "50+ creators engaged"
+        }
+      },
+      {
+        "label": {
+          "zh": "独立交付能力",
+          "en": "Independent Delivery"
+        },
+        "value": {
+          "zh": "0 → 1 桌面级软件",
+          "en": "0 → 1 desktop software"
+        }
+      }
+    ]
+  },
   "HERO_SETTINGS": {
-    "nameSize": 136,
-    "nameColor": "#4262ff",
-    "nameSkew": 15,
+    "nameSize": 96,
+    "nameColor": "#111111",
+    "nameSkew": 0,
     "nameShadow": true,
-    "shadowSize": 12,
-    "shadowColor": "#d6d6d6",
+    "shadowSize": 5,
+    "shadowColor": "#2457ff",
     "eyebrowShow": true,
-    "eyebrowColor": "#000000",
-    "statementColor": "#6e6e73",
+    "eyebrowColor": "#2457ff",
+    "statementColor": "#111111",
     "statementSize": 19,
-    "lineShow": true,
+    "lineShow": false,
     "lineColor": "#2457ff",
-    "glowShow": true,
+    "glowShow": false,
     "glowOpacity": 0.2,
-    "bgTone": 60,
+    "bgTone": 0,
     "align": "left"
   }
 }
